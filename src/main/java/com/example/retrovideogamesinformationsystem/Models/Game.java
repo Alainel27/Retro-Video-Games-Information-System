@@ -1,6 +1,4 @@
-package Models;
-
-import org.controlsfx.control.spreadsheet.SpreadsheetCell;
+package com.example.retrovideogamesinformationsystem.Models;
 
 public class Game {
 
