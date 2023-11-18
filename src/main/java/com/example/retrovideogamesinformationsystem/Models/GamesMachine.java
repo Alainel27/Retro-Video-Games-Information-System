@@ -1,4 +1,4 @@
-package Models;
+package com.example.retrovideogamesinformationsystem.Models;
 
 public class GamesMachine {
 

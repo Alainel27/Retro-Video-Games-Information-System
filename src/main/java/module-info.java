@@ -7,4 +7,6 @@ module com.example.retrovideogamesinformationsystem {
 
     opens com.example.retrovideogamesinformationsystem to javafx.fxml;
     exports com.example.retrovideogamesinformationsystem;
+    exports com.example.retrovideogamesinformationsystem.Controllers;
+    opens com.example.retrovideogamesinformationsystem.Controllers to javafx.fxml;
 }
