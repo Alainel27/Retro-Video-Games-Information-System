@@ -1,16 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="com.example.retrovideogamesinformationsystem.Controllers.GMController"
-            prefHeight="400.0" prefWidth="600.0">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.retrovideogamesinformationsystem.Controllers.GMController">
 
 
-    <Label fx:id="test" text="hello"/>
+    <Label layoutX="211.0" layoutY="26.0" text="THE GAME MACHINE" />
+
+    <ToolBar layoutX="75.0" layoutY="43.0" prefHeight="40.0" prefWidth="384.0">
+        <items>
+            <Button onAction="#switchToGameMenu" prefHeight="25.0" prefWidth="120.0" text="Main Menu" />
+            <Button onAction="#switchToGame" prefHeight="25.0" prefWidth="120.0" text="Game Menu" />
+            <Button onAction="#switchToGamePort" prefHeight="25.0" prefWidth="120.0" text="Game Port Menu" />
+        </items>
+    </ToolBar>
 </AnchorPane>
