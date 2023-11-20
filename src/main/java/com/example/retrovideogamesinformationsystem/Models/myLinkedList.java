@@ -2,7 +2,7 @@ package com.example.retrovideogamesinformationsystem.Models;
 
 public class myLinkedList<L> {
 
-    private myNode<L> head = null;
+    public myNode<L> head = null;
 
     public void add(L N) {
         myNode<L> add = new myNode<>();
@@ -20,5 +20,27 @@ public class myLinkedList<L> {
         }
         return list;
     }
+
+    //this is your method sean I dunno how works
+    public boolean remove(Object o) {
+        if (head == null) {
+            return false;
+        }
+        if (o == head.getContents()){
+            head = head.next;
+            return true;
+        }
+        myNode<L> remove = head;
+        while (remove.next != null) {
+            if (remove.next.getContents().equals(o)) {
+                remove.next = remove.next.next;
+                return true;
+            }
+            remove = remove.next;
+        }
+        return false;
+    }
+
+
 }
 

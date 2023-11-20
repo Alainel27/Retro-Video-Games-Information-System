@@ -5,8 +5,10 @@ import com.example.retrovideogamesinformationsystem.Models.myLinkedList;
 import com.example.retrovideogamesinformationsystem.SystemApplication;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import com.example.retrovideogamesinformationsystem.Models.myNode;
 
 
 public class GController {
@@ -17,7 +19,7 @@ public class GController {
         contG=this;
     }
 
-    private static myLinkedList<Game> allGames = new myLinkedList<>();
+
     @FXML
     private TextField addGameName, addPublisher, addDescription, addDeveloper, addType, addYearOfRelease, addCover;
     @FXML
@@ -42,7 +44,7 @@ public class GController {
         g.setYearOfRelease(yearOfRelease);
         g.setCover(cover);
 
-        allGames.add(g);
+        SController.allGames.add(g);
 
         addGameName.clear();
         addPublisher.clear();
@@ -54,8 +56,40 @@ public class GController {
     }
 
     @FXML
+    public ChoiceBox<String> GameName;
+
+    public static Game getGameByName(String GameName){
+        //create temp node at head
+        myNode<Game> temp=SController.allGames.head;
+
+        //Iterate linkedList until end or matching port name
+        while (temp!=null && !temp.getContents().getGameName().equals(GameName)){
+            temp = temp.next;
+        }
+
+        //if temp is null return null else return the contents of node
+        return temp==null ? null : temp.getContents();
+        //if(temp==null) return null; else return temp.getContents();
+
+    }
+
+    //MOTHA FUKING WORKS
+    @FXML
+    private void removeGame(){
+        //get the name of the game from the choice box
+        Game game = getGameByName(GameName.getValue());
+        //if the game is not null the game with the same name will be removed
+        if (game != null){
+            SController.allGames.remove(game);
+        }
+
+    }
+
+
+
+    @FXML
     protected void displayGame(){
-        display.setText(allGames.display());
+        display.setText(SController.allGames.display());
     }
 
     @FXML

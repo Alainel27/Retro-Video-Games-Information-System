@@ -1,9 +1,14 @@
 package com.example.retrovideogamesinformationsystem;
 
+import com.example.retrovideogamesinformationsystem.Controllers.GController;
+import com.example.retrovideogamesinformationsystem.Controllers.GMController;
+import com.example.retrovideogamesinformationsystem.Controllers.SController;
+import com.example.retrovideogamesinformationsystem.Models.Game;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import com.example.retrovideogamesinformationsystem.Models.myNode;
 
 import java.io.IOException;
 
@@ -44,9 +49,16 @@ public class SystemApplication extends Application {
     public static void switchSceneToGM(){
         primaryStage.setScene(sceneGMachine);
     }
+
     //switches to Game scene
     public static void switchSceneToGame(){
         primaryStage.setScene(sceneGame);
+        myNode<Game> temp= SController.allGames.head;
+        GController.contG.GameName.getItems().clear();
+        while (temp!=null){
+            GController.contG.GameName.getItems().add(temp.getContents().getGameName());
+            temp=temp.next;
+        }
     }
     //switches to game port
     public static void switchSceneToGp(){
