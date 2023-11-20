@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.retrovideogamesinformationsystem.Controllers.GController">
+
+    <Label layoutX="265.0" layoutY="26.0" text="THE GAME" />
+
+    <ToolBar layoutX="75.0" layoutY="43.0" prefHeight="40.0" prefWidth="403.0">
+        <items>
+            <Button onAction="#switchToMenu" prefHeight="25.0" prefWidth="120.0" text="Main Menu" />
+            <Button onAction="#switchToGameMachine" prefHeight="25.0" prefWidth="130.0" text="Game Machine Menu" />
+            <Button onAction="#switchToGamePort" prefHeight="25.0" prefWidth="120.0" text="Game Port Menu" />
+        </items>
+    </ToolBar>
+
+    <TextField fx:id="addGameName" layoutX="75.0" layoutY="99.0" promptText="add game name" />
+    <TextField fx:id="addPublisher" layoutX="75.0" layoutY="134.0" promptText="add publisher" />
+    <TextField fx:id="addDescription" layoutX="75.0" layoutY="172.0" promptText="add description" />
+    <TextField fx:id="addDeveloper" layoutX="75.0" layoutY="211.0" promptText="add developer of game" />
+    <TextField fx:id="addType" layoutX="75.0" layoutY="247.0" promptText="add type" />
+    <TextField fx:id="addYearOfRelease" layoutX="75.0" layoutY="286.0" promptText="add the year of release" />
+    <TextField fx:id="addCover" layoutX="75.0" layoutY="322.0" prefHeight="25.0" prefWidth="149.0" promptText="add cover" />
+
+    <Button layoutX="240.0" layoutY="99.0" onAction="#addGame" text="Add Game" />
+    <Button layoutX="240.0" layoutY="134.0" onAction="#displayGame" text="Display game" />
+    <Label fx:id="display" layoutX="265.0" layoutY="174.0" prefHeight="172.0" prefWidth="740.0" />
+
+</AnchorPane>

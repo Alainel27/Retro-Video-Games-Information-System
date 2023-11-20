@@ -2,17 +2,27 @@ package com.example.retrovideogamesinformationsystem.Controllers;
 
 import com.example.retrovideogamesinformationsystem.Models.Game;
 import com.example.retrovideogamesinformationsystem.Models.myLinkedList;
+import com.example.retrovideogamesinformationsystem.SystemApplication;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 
 
 public class GController {
+    //the following code is for the other classes so there this class can be assessed easily.
+    public static GController contG;
+    @FXML
+    private void initialize(){
+        contG=this;
+    }
+
+
 
     private myLinkedList<Game> allGames = new myLinkedList<>();
 
     public TextField addGameName, addPublisher, addDescription, addDeveloper, addType, addYearOfRelease, addCover;
-    public Button display;
+    public Label display;
 
     @FXML
     protected void addGame(){
@@ -47,5 +57,20 @@ public class GController {
     @FXML
     protected void displayGame(){
         display.setText(allGames.display());
+    }
+
+    @FXML
+    private void switchToMenu(){
+        SystemApplication.switchSceneToMenu();
+    }
+
+    @FXML
+    private void switchToGameMachine(){
+        SystemApplication.switchSceneToGM();
+    }
+
+    @FXML
+    private void switchToGamePort(){
+        SystemApplication.switchSceneToGp();
     }
 }
