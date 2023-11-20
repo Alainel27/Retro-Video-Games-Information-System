@@ -1,8 +1,11 @@
 package com.example.retrovideogamesinformationsystem.Controllers;
 
+import com.example.retrovideogamesinformationsystem.Models.Game;
 import com.example.retrovideogamesinformationsystem.Models.GamesMachine;
+import com.example.retrovideogamesinformationsystem.Models.myNode;
 import com.example.retrovideogamesinformationsystem.SystemApplication;
 import javafx.fxml.FXML;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
@@ -57,6 +60,35 @@ public class GMController {
 
     }
 //put the switching methods at the bottom of code
+
+    @FXML
+    public ChoiceBox<String> ChoiceBoxGMName;
+
+    public static GamesMachine getGameMachineByName(String GameMName){
+        //create temp node at head
+        myNode<GamesMachine> temp=SController.allGM.head;
+
+        //Iterate linkedList until end or matching port name
+        while (temp!=null && !temp.getContents().getMachineName().equals(GameMName)){
+            temp = temp.next;
+        }
+
+        //if temp is null return null else return the contents of node
+        return temp==null ? null : temp.getContents();
+        //if(temp==null) return null; else return temp.getContents();
+
+    }
+
+    @FXML
+    private void removeGame(){
+        //get the name of the game from the choice box
+        GamesMachine gameMachine = getGameMachineByName(ChoiceBoxGMName.getValue());
+        //if the game is not null the game with the same name will be removed
+        if (gameMachine != null){
+            SController.allGM.remove(gameMachine);
+        }
+
+    }
 
     @FXML
     private void displayGameMachine(){

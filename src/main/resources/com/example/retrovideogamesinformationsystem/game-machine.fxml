@@ -15,13 +15,15 @@
     <TextField fx:id="addPrice" layoutX="75.0" layoutY="247.0" promptText="add price" />
     <TextField fx:id="addURL" layoutX="75.0" layoutY="328.0" promptText="add URL" />
 
-    <Button layoutX="240.0" layoutY="93.0" onAction="#addGameMachine" text="Add Game Machine" />
-    <Button layoutX="240.0" layoutY="131.0" onAction="#displayGameMachine" text="Display Game Machine"/>
+    <Button layoutX="240.0" layoutY="93.0" onAction="#addGameMachine" prefHeight="25.0" prefWidth="137.0" text="Add Game Machine" />
+    <Button layoutX="240.0" layoutY="131.0" onAction="#displayGameMachine" text="Display Game Machine" />
     <Button layoutX="240.0" layoutY="168.0" onAction="#switchToEdit" text="Back" />
     <ScrollPane layoutX="240.0" layoutY="200.0" prefHeight="200.0" prefWidth="200.0">
         <content>
             <Label fx:id="display" prefHeight="184.0" prefWidth="816.0" />
         </content>
     </ScrollPane>
+    <Button layoutX="398.0" layoutY="93.0" onAction="#removeGame" text="Remove Game Machine" />
+    <ChoiceBox fx:id="ChoiceBoxGMName" layoutX="398.0" layoutY="131.0" prefHeight="25.0" prefWidth="142.0" />
 
 </AnchorPane>
