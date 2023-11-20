@@ -2,8 +2,11 @@ package com.example.retrovideogamesinformationsystem;
 
 import com.example.retrovideogamesinformationsystem.Controllers.GController;
 import com.example.retrovideogamesinformationsystem.Controllers.GMController;
+import com.example.retrovideogamesinformationsystem.Controllers.GPController;
 import com.example.retrovideogamesinformationsystem.Controllers.SController;
 import com.example.retrovideogamesinformationsystem.Models.Game;
+import com.example.retrovideogamesinformationsystem.Models.GamePort;
+import com.example.retrovideogamesinformationsystem.Models.GamesMachine;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -48,6 +51,12 @@ public class SystemApplication extends Application {
     //switches to game machine
     public static void switchSceneToGM(){
         primaryStage.setScene(sceneGMachine);
+        myNode<GamesMachine> temp= SController.allGM.head;
+        GMController.contGM.ChoiceBoxGMName.getItems().clear();
+        while (temp!=null){
+            GMController.contGM.ChoiceBoxGMName.getItems().add(temp.getContents().getMachineName());
+            temp=temp.next;
+        }
     }
 
     //switches to Game scene
@@ -63,6 +72,12 @@ public class SystemApplication extends Application {
     //switches to game port
     public static void switchSceneToGp(){
         primaryStage.setScene(sceneGamePort);
+        myNode<GamePort> temp= SController.allGP.head;
+        GPController.contGP.ChoiceBoxGPGame.getItems().clear();
+        while (temp!=null){
+            GPController.contGP.ChoiceBoxGPGame.getItems().add(temp.getContents().getPortedGame());
+            temp=temp.next;
+        }
     }
 
     public static void switchSceneToMenu(){

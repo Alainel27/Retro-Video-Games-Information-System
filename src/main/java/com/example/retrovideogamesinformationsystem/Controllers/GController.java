@@ -58,6 +58,7 @@ public class GController {
     @FXML
     public ChoiceBox<String> GameName;
 
+    //PETER MADE THIS CODE FOR ME SEAN
     public static Game getGameByName(String GameName){
         //create temp node at head
         myNode<Game> temp=SController.allGames.head;

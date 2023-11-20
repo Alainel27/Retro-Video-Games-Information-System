@@ -1,9 +1,12 @@
 package com.example.retrovideogamesinformationsystem.Controllers;
 
+import com.example.retrovideogamesinformationsystem.Models.GamesMachine;
 import com.example.retrovideogamesinformationsystem.Models.myLinkedList;
 import com.example.retrovideogamesinformationsystem.Models.GamePort;
+import com.example.retrovideogamesinformationsystem.Models.myNode;
 import com.example.retrovideogamesinformationsystem.SystemApplication;
 import javafx.fxml.FXML;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 
@@ -41,6 +44,36 @@ public class GPController {
         addPortDeveloper.clear();
         addPortReleaseYear.clear();
         addCover.clear();
+    }
+
+
+    @FXML
+    public ChoiceBox<String> ChoiceBoxGPGame;
+
+    public static GamePort getGamePortGame(String GamePortGame){
+        //create temp node at head
+        myNode<GamePort> temp=SController.allGP.head;
+
+        //Iterate linkedList until end or matching port name
+        while (temp!=null && !temp.getContents().getPortedGame().equals(GamePortGame)){
+            temp = temp.next;
+        }
+
+        //if temp is null return null else return the contents of node
+        return temp==null ? null : temp.getContents();
+        //if(temp==null) return null; else return temp.getContents();
+
+    }
+
+    @FXML
+    private void removeGame(){
+        //get the name of the game from the choice box
+        GamePort gamePort = getGamePortGame(ChoiceBoxGPGame.getValue());
+        //if the game is not null the game with the same name will be removed
+        if (gamePort!= null){
+            SController.allGP.remove(gamePort);
+        }
+
     }
 
     @FXML
