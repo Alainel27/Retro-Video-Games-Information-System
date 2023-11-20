@@ -17,12 +17,11 @@ public class GController {
         contG=this;
     }
 
-
-
-    private myLinkedList<Game> allGames = new myLinkedList<>();
-
-    public TextField addGameName, addPublisher, addDescription, addDeveloper, addType, addYearOfRelease, addCover;
-    public Label display;
+    private static myLinkedList<Game> allGames = new myLinkedList<>();
+    @FXML
+    private TextField addGameName, addPublisher, addDescription, addDeveloper, addType, addYearOfRelease, addCover;
+    @FXML
+    private Label display;
 
     @FXML
     protected void addGame(){
@@ -72,5 +71,10 @@ public class GController {
     @FXML
     private void switchToGamePort(){
         SystemApplication.switchSceneToGp();
+    }
+
+    @FXML
+    private void switchToEdit(){
+        SystemApplication.switchSceneToEdit();
     }
 }

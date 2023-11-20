@@ -5,14 +5,15 @@
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.retrovideogamesinformationsystem.Controllers.GPController">
 
-    <Label layoutX="246.0" layoutY="26.0" text="THE GAME PORT" />
+    <Label layoutX="246.0" layoutY="26.0" text="ADD A GAME PORT" />
 
-    <ToolBar layoutX="75.0" layoutY="43.0" prefHeight="40.0" prefWidth="406.0">
-        <items>
-            <Button onAction="#switchToMenu" prefHeight="25.0" prefWidth="120.0" text="Main Menu" />
-            <Button onAction="#switchToGame" prefHeight="25.0" prefWidth="120.0" text="Game Menu" />
-            <Button onAction="#switchToGameMachine" prefHeight="25.0" prefWidth="132.0" text="Game Machine menu" />
-        </items>
-    </ToolBar>
+    <TextField fx:id="addPortedGame" layoutX="75.0" layoutY="99.0" promptText="Enter Port Game Name"/>
+    <TextField fx:id="addPortDeveloper" layoutX="75.0" layoutY="134.0" promptText="Enter Port Developer"/>
+    <TextField fx:id="addPortReleaseYear" layoutX="75.0" layoutY="172.0" promptText="Enter Port Release Year"/>
+    <TextField fx:id="addCover" layoutX="75.0" layoutY="211.0" promptText="Enter Port Cover"/>
 
+    <Button layoutX="240.0" layoutY="99.0" onAction="#addGamePort" text="Add Game Port"/>
+    <Button layoutX="240.0" layoutY="134.0" onAction="#displayGamePort" text="Display Game Port"/>
+    <Button layoutX="240.0" layoutY="172.0" onAction="#switchToEdit" text="Back" />
+    <Label fx:id="display" layoutX="265.0" layoutY="174.0" prefHeight="172.0" prefWidth="740.0"/>
 </AnchorPane>

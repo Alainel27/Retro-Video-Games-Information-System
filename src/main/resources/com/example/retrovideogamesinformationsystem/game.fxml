@@ -5,15 +5,7 @@
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.retrovideogamesinformationsystem.Controllers.GController">
 
-    <Label layoutX="265.0" layoutY="26.0" text="THE GAME" />
-
-    <ToolBar layoutX="75.0" layoutY="43.0" prefHeight="40.0" prefWidth="403.0">
-        <items>
-            <Button onAction="#switchToMenu" prefHeight="25.0" prefWidth="120.0" text="Main Menu" />
-            <Button onAction="#switchToGameMachine" prefHeight="25.0" prefWidth="130.0" text="Game Machine Menu" />
-            <Button onAction="#switchToGamePort" prefHeight="25.0" prefWidth="120.0" text="Game Port Menu" />
-        </items>
-    </ToolBar>
+    <Label layoutX="265.0" layoutY="26.0" text="ADD A GAME" />
 
     <TextField fx:id="addGameName" layoutX="75.0" layoutY="99.0" promptText="add game name" />
     <TextField fx:id="addPublisher" layoutX="75.0" layoutY="134.0" promptText="add publisher" />
@@ -25,6 +17,7 @@
 
     <Button layoutX="240.0" layoutY="99.0" onAction="#addGame" text="Add Game" />
     <Button layoutX="240.0" layoutY="134.0" onAction="#displayGame" text="Display game" />
+    <Button layoutX="240.0" layoutY="172.0" onAction="#switchToEdit" text="Back" />
     <Label fx:id="display" layoutX="265.0" layoutY="174.0" prefHeight="172.0" prefWidth="740.0" />
 
 </AnchorPane>

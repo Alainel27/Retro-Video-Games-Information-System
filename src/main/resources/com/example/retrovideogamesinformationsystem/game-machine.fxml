@@ -5,14 +5,23 @@
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.retrovideogamesinformationsystem.Controllers.GMController">
 
+    <Label layoutX="211.0" layoutY="26.0" text="ADD A GAME MACHINE" />
 
-    <Label layoutX="211.0" layoutY="26.0" text="THE GAME MACHINE" />
+    <TextField fx:id="addMName" layoutX="75.0" layoutY="93.0" promptText="add name" />
+    <TextField fx:id="addManu" layoutX="75.0" layoutY="131.0" promptText="add manufacturer" />
+    <TextField fx:id="addType" layoutX="75.0" layoutY="168.0" promptText="add type" />
+    <TextField fx:id="addYear" layoutX="75.0" layoutY="208.0" promptText="add year of launch" />
+    <TextField fx:id="addMedia" layoutX="75.0" layoutY="288.0" promptText="add media" />
+    <TextField fx:id="addPrice" layoutX="75.0" layoutY="247.0" promptText="add price" />
+    <TextField fx:id="addURL" layoutX="75.0" layoutY="328.0" promptText="add URL" />
 
-    <ToolBar layoutX="75.0" layoutY="43.0" prefHeight="40.0" prefWidth="384.0">
-        <items>
-            <Button onAction="#switchToGameMenu" prefHeight="25.0" prefWidth="120.0" text="Main Menu" />
-            <Button onAction="#switchToGame" prefHeight="25.0" prefWidth="120.0" text="Game Menu" />
-            <Button onAction="#switchToGamePort" prefHeight="25.0" prefWidth="120.0" text="Game Port Menu" />
-        </items>
-    </ToolBar>
+    <Button layoutX="240.0" layoutY="93.0" onAction="#addGameMachine" text="Add Game Machine" />
+    <Button layoutX="240.0" layoutY="131.0" onAction="#displayGameMachine" text="Display Game Machine"/>
+    <Button layoutX="240.0" layoutY="168.0" onAction="#switchToEdit" text="Back" />
+    <ScrollPane layoutX="240.0" layoutY="200.0" prefHeight="200.0" prefWidth="200.0">
+        <content>
+            <Label fx:id="display" prefHeight="184.0" prefWidth="816.0" />
+        </content>
+    </ScrollPane>
+
 </AnchorPane>

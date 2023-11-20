@@ -9,7 +9,7 @@ import java.io.IOException;
 
 public class SystemApplication extends Application {
 
-    public static Scene sceneSystem,sceneGMachine,sceneGame,sceneGamePort;
+    public static Scene sceneSystem,sceneGMachine,sceneGame,sceneGamePort,sceneEdit;
 
     public static Stage primaryStage;
 
@@ -27,6 +27,8 @@ public class SystemApplication extends Application {
         fxmlLoader = new FXMLLoader(SystemApplication.class.getResource("game-port.fxml"));
         sceneGamePort = new Scene(fxmlLoader.load(), 800, 800);
 
+        fxmlLoader = new FXMLLoader(SystemApplication.class.getResource("edit.fxml"));
+        sceneEdit = new Scene(fxmlLoader.load(), 800, 800);
 
         stage.setTitle("System Controller");
         stage.setScene(sceneSystem);
@@ -53,6 +55,10 @@ public class SystemApplication extends Application {
 
     public static void switchSceneToMenu(){
         primaryStage.setScene(sceneSystem);
+    }
+
+    public static void switchSceneToEdit(){
+        primaryStage.setScene(sceneEdit);
     }
 
 
