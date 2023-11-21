@@ -20,7 +20,7 @@
     <Button layoutX="240.0" layoutY="168.0" onAction="#switchToEdit" text="Back" />
     <ScrollPane layoutX="240.0" layoutY="200.0" prefHeight="200.0" prefWidth="200.0">
         <content>
-            <Label fx:id="display" prefHeight="184.0" prefWidth="816.0" />
+            <Label fx:id="display" prefHeight="183.0" prefWidth="719.0" />
         </content>
     </ScrollPane>
     <Button layoutX="398.0" layoutY="93.0" onAction="#removeGame" text="Remove Game Machine" />

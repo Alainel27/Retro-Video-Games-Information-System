@@ -7,13 +7,15 @@
 
     <Label layoutX="246.0" layoutY="26.0" text="ADD A GAME PORT" />
 
-    <TextField fx:id="addPortedGame" layoutX="75.0" layoutY="99.0" promptText="Enter Port Game Name"/>
-    <TextField fx:id="addPortDeveloper" layoutX="75.0" layoutY="134.0" promptText="Enter Port Developer"/>
-    <TextField fx:id="addPortReleaseYear" layoutX="75.0" layoutY="172.0" promptText="Enter Port Release Year"/>
-    <TextField fx:id="addCover" layoutX="75.0" layoutY="211.0" promptText="Enter Port Cover"/>
+    <TextField fx:id="addPortedGame" layoutX="75.0" layoutY="99.0" promptText="Enter Port Game Name" />
+    <TextField fx:id="addPortDeveloper" layoutX="75.0" layoutY="134.0" promptText="Enter Port Developer" />
+    <TextField fx:id="addPortReleaseYear" layoutX="75.0" layoutY="172.0" promptText="Enter Port Release Year" />
+    <TextField fx:id="addCover" layoutX="75.0" layoutY="211.0" promptText="Enter Port Cover" />
 
-    <Button layoutX="240.0" layoutY="99.0" onAction="#addGamePort" text="Add Game Port"/>
-    <Button layoutX="240.0" layoutY="134.0" onAction="#displayGamePort" text="Display Game Port"/>
+    <Button layoutX="240.0" layoutY="99.0" onAction="#addGamePort" text="Add Game Port" />
+    <Button layoutX="240.0" layoutY="134.0" onAction="#displayGamePort" text="Display Game Port" />
     <Button layoutX="240.0" layoutY="172.0" onAction="#switchToEdit" text="Back" />
-    <Label fx:id="display" layoutX="265.0" layoutY="174.0" prefHeight="172.0" prefWidth="740.0"/>
+    <Label fx:id="display" layoutX="265.0" layoutY="174.0" prefHeight="172.0" prefWidth="740.0" />
+    <Button layoutX="377.0" layoutY="99.0" onAction="#removeGame" text="Remove GamePort" />
+    <ChoiceBox fx:id="ChoiceBoxGPGame" layoutX="377.0" layoutY="134.0" prefHeight="25.0" prefWidth="114.0" />
 </AnchorPane>

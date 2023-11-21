@@ -24,19 +24,19 @@ public class SystemApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(SystemApplication.class.getResource("system-view.fxml"));
-        sceneSystem = new Scene(fxmlLoader.load(), 800, 800);
+        sceneSystem = new Scene(fxmlLoader.load(), 450, 400);
 
         fxmlLoader = new FXMLLoader(SystemApplication.class.getResource("game-machine.fxml"));
-        sceneGMachine = new Scene(fxmlLoader.load(), 800, 800);
+        sceneGMachine = new Scene(fxmlLoader.load(), 550, 400);
 
         fxmlLoader = new FXMLLoader(SystemApplication.class.getResource("game.fxml"));
-        sceneGame = new Scene(fxmlLoader.load(), 800, 800);
+        sceneGame = new Scene(fxmlLoader.load(), 450, 400);
 
         fxmlLoader = new FXMLLoader(SystemApplication.class.getResource("game-port.fxml"));
-        sceneGamePort = new Scene(fxmlLoader.load(), 800, 800);
+        sceneGamePort = new Scene(fxmlLoader.load(), 550, 400);
 
         fxmlLoader = new FXMLLoader(SystemApplication.class.getResource("edit.fxml"));
-        sceneEdit = new Scene(fxmlLoader.load(), 800, 800);
+        sceneEdit = new Scene(fxmlLoader.load(), 450, 400);
 
         stage.setTitle("System Controller");
         stage.setScene(sceneSystem);
