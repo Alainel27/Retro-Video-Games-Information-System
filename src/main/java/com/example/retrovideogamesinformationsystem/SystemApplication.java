@@ -17,26 +17,29 @@ import java.io.IOException;
 
 public class SystemApplication extends Application {
 
-    public static Scene sceneSystem,sceneGMachine,sceneGame,sceneGamePort,sceneEdit;
+    public static Scene sceneSystem,sceneGMachine,sceneGame,sceneGamePort,sceneAdd,sceneEdit;
 
     public static Stage primaryStage;
 
     @Override
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(SystemApplication.class.getResource("system-view.fxml"));
-        sceneSystem = new Scene(fxmlLoader.load(), 450, 400);
+        sceneSystem = new Scene(fxmlLoader.load(), 550, 400);
 
         fxmlLoader = new FXMLLoader(SystemApplication.class.getResource("game-machine.fxml"));
         sceneGMachine = new Scene(fxmlLoader.load(), 550, 400);
 
         fxmlLoader = new FXMLLoader(SystemApplication.class.getResource("game.fxml"));
-        sceneGame = new Scene(fxmlLoader.load(), 450, 400);
+        sceneGame = new Scene(fxmlLoader.load(), 550, 400);
 
         fxmlLoader = new FXMLLoader(SystemApplication.class.getResource("game-port.fxml"));
         sceneGamePort = new Scene(fxmlLoader.load(), 550, 400);
 
-        fxmlLoader = new FXMLLoader(SystemApplication.class.getResource("edit.fxml"));
-        sceneEdit = new Scene(fxmlLoader.load(), 450, 400);
+        fxmlLoader = new FXMLLoader(SystemApplication.class.getResource("add.fxml"));
+        sceneAdd = new Scene(fxmlLoader.load(), 550, 400);
+
+        fxmlLoader = new FXMLLoader(SystemApplication.class.getResource("add.fxml"));
+        sceneEdit = new Scene(fxmlLoader.load(), 550, 400);
 
         stage.setTitle("System Controller");
         stage.setScene(sceneSystem);
@@ -84,11 +87,13 @@ public class SystemApplication extends Application {
         primaryStage.setScene(sceneSystem);
     }
 
+    public static void switchSceneToAdd(){
+        primaryStage.setScene(sceneAdd);
+    }
+
     public static void switchSceneToEdit(){
         primaryStage.setScene(sceneEdit);
     }
-
-
 }
 
 //test

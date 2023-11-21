@@ -109,7 +109,7 @@ public class GController {
     }
 
     @FXML
-    private void switchToEdit(){
-        SystemApplication.switchSceneToEdit();
+    private void switchToAdd(){
+        SystemApplication.switchSceneToAdd();
     }
 }

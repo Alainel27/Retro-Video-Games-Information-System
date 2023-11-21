@@ -2,15 +2,17 @@
 
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
 <AnchorPane xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.retrovideogamesinformationsystem.Controllers.SController" prefHeight="400.0" prefWidth="600.0">
 
-    <Label text="Adding Menu"/>
-    <Button layoutX="200" layoutY="119" onAction="#switchToGame" prefHeight="25.0" prefWidth="120.0" text="Add A Game" />
-    <Button layoutX="200" layoutY="165" onAction="#switchToGameMachine" prefHeight="25.0" prefWidth="132.0" text="Add A Game Machine" />
-    <Button layoutX="200" layoutY="211" onAction="#switchToGamePort" prefHeight="25.0" prefWidth="120.0" text="Add A Game Port" />
-    <Button layoutX="200" layoutY="257" onAction="#switchToMenu" prefHeight="25.0" prefWidth="120.0" text="Back" />
-
-
+    <Label alignment="CENTER" layoutX="225" layoutY="76.0" prefHeight="35.0" prefWidth="130.0" text="Editing Menu" >
+        <font><Font size="21"/>
+        </font>
+    </Label>
+    <Button alignment="CENTER" layoutX="189.0" layoutY="90.0" onAction="#switchToGame" prefHeight="35.0" prefWidth="145.0" text="Edit A Game" />
+    <Button alignment="CENTER" layoutX="189.0" layoutY="150.0" onAction="#switchToGameMachine" prefHeight="35.0" prefWidth="145.0" text="Edit A Game Machine" />
+    <Button alignment="CENTER" layoutX="189.0" layoutY="219.0" onAction="#switchToGamePort" prefHeight="35.0" prefWidth="145.0" text="Edit A Game Port" />
+    <Button alignment="CENTER" layoutX="189.0" layoutY="270.0" onAction="#switchToMenu" prefHeight="35" prefWidth="145.0" text="Back" />
 
 </AnchorPane>

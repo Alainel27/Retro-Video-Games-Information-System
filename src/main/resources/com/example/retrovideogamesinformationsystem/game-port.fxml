@@ -2,20 +2,29 @@
 
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.retrovideogamesinformationsystem.Controllers.GPController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.retrovideogamesinformationsystem.Controllers.GPController">
 
-    <Label layoutX="246.0" layoutY="26.0" text="ADD A GAME PORT" />
+    <Label layoutX="204.0" layoutY="27.0" text="ADD A GAME PORT">
+      <font>
+         <Font size="21.0" />
+      </font></Label>
 
-    <TextField fx:id="addPortedGame" layoutX="75.0" layoutY="99.0" promptText="Enter Port Game Name" />
-    <TextField fx:id="addPortDeveloper" layoutX="75.0" layoutY="134.0" promptText="Enter Port Developer" />
-    <TextField fx:id="addPortReleaseYear" layoutX="75.0" layoutY="172.0" promptText="Enter Port Release Year" />
-    <TextField fx:id="addCover" layoutX="75.0" layoutY="211.0" promptText="Enter Port Cover" />
+    <TextField fx:id="addPortedGame" layoutX="50.0" layoutY="100.0" promptText="Enter Port Game Name" />
+    <TextField fx:id="addPortDeveloper" layoutX="50.0" layoutY="135.0" promptText="Enter Port Developer" />
+    <TextField fx:id="addPortReleaseYear" layoutX="50.0" layoutY="170.0" promptText="Enter Port Release Year" />
+    <TextField fx:id="addCover" layoutX="50.0" layoutY="210.0" promptText="Enter Port Cover" />
 
-    <Button layoutX="240.0" layoutY="99.0" onAction="#addGamePort" text="Add Game Port" />
-    <Button layoutX="240.0" layoutY="134.0" onAction="#displayGamePort" text="Display Game Port" />
-    <Button layoutX="240.0" layoutY="172.0" onAction="#switchToEdit" text="Back" />
-    <Label fx:id="display" layoutX="265.0" layoutY="174.0" prefHeight="172.0" prefWidth="740.0" />
-    <Button layoutX="377.0" layoutY="99.0" onAction="#removeGame" text="Remove GamePort" />
-    <ChoiceBox fx:id="ChoiceBoxGPGame" layoutX="377.0" layoutY="134.0" prefHeight="25.0" prefWidth="114.0" />
+    <Button layoutX="220.0" layoutY="100.0" onAction="#addGamePort" prefHeight="25.0" prefWidth="150.0" text="Add Game Port" />
+    <Button layoutX="390.0" layoutY="100.0" onAction="#displayGamePort" prefHeight="25.0" prefWidth="150.0" text="Display Game Port" />
+    <Button layoutX="220.0" layoutY="135.0" onAction="#switchToAdd" prefHeight="25.0" prefWidth="150.0" text="Back" />
+    <ScrollPane layoutX="220.0" layoutY="170.0" prefHeight="121.0" prefWidth="310.0">
+        <content>
+            <Label fx:id="display" />
+        </content>
+    </ScrollPane>
+
+    <Button layoutX="399.0" layoutY="30.0" onAction="#removeGame" text="Remove GamePort" />
+    <ChoiceBox fx:id="ChoiceBoxGPGame" layoutX="400.0" layoutY="55.0" prefHeight="25.0" prefWidth="114.0" />
 </AnchorPane>

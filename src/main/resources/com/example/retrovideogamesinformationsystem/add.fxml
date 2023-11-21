@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.retrovideogamesinformationsystem.Controllers.SController">
+
+    <Label alignment="CENTER" layoutX="189.0" layoutY="40.0" prefHeight="35.0" prefWidth="145.0" text="Adding Menu">
+        <font><Font size="21" />
+        </font>
+    </Label>
+    <Button alignment="CENTER" layoutX="189.0" layoutY="90.0" onAction="#switchToGame" prefHeight="35.0" prefWidth="145.0" text="Add A Game" />
+    <Button alignment="CENTER" layoutX="189.0" layoutY="150.0" onAction="#switchToGameMachine" prefHeight="35.0" prefWidth="145.0" text="Add A Game Machine" />
+    <Button alignment="CENTER" layoutX="189.0" layoutY="210.0" onAction="#switchToGamePort" prefHeight="35.0" prefWidth="145.0" text="Add A Game Port" />
+    <Button alignment="CENTER" layoutX="189.0" layoutY="270.0" onAction="#switchToMenu" prefHeight="35" prefWidth="145.0" text="Back" />
+
+
+</AnchorPane>

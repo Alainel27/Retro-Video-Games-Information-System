@@ -31,8 +31,8 @@ public class SController {
     }
 
     @FXML
-    private void switchToEdit(){
-        SystemApplication.switchSceneToEdit();
+    private void switchToAdd(){
+        SystemApplication.switchSceneToAdd();
     }
     @FXML
     private void switchToGame(){
@@ -47,6 +47,11 @@ public class SController {
     @FXML
     private void switchToGamePort(){
         SystemApplication.switchSceneToGp();
+    }
+
+    @FXML
+    private void switchToEdit(){
+        SystemApplication.switchSceneToEdit();
     }
 
 

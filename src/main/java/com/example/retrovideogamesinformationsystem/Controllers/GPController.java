@@ -97,8 +97,8 @@ public class GPController {
     }
 
     @FXML
-    private void switchToEdit(){
-        SystemApplication.switchSceneToEdit();
+    private void switchToAdd(){
+        SystemApplication.switchSceneToAdd();
     }
 
 }

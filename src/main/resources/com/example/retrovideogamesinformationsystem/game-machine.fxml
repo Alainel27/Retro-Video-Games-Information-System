@@ -3,27 +3,27 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.retrovideogamesinformationsystem.Controllers.GMController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.retrovideogamesinformationsystem.Controllers.GMController">
 
     <Label layoutX="211.0" layoutY="26.0" text="ADD A GAME MACHINE" />
 
-    <TextField fx:id="addMName" layoutX="75.0" layoutY="93.0" promptText="add name" />
-    <TextField fx:id="addManu" layoutX="75.0" layoutY="131.0" promptText="add manufacturer" />
-    <TextField fx:id="addType" layoutX="75.0" layoutY="168.0" promptText="add type" />
-    <TextField fx:id="addYear" layoutX="75.0" layoutY="208.0" promptText="add year of launch" />
-    <TextField fx:id="addMedia" layoutX="75.0" layoutY="288.0" promptText="add media" />
-    <TextField fx:id="addPrice" layoutX="75.0" layoutY="247.0" promptText="add price" />
-    <TextField fx:id="addURL" layoutX="75.0" layoutY="328.0" promptText="add URL" />
+    <TextField fx:id="addMName" layoutX="60.0" layoutY="90.0" promptText="add name" />
+    <TextField fx:id="addManu" layoutX="60.0" layoutY="130.0" promptText="add manufacturer" />
+    <TextField fx:id="addType" layoutX="60.0" layoutY="170.0" promptText="add type" />
+    <TextField fx:id="addYear" layoutX="60.0" layoutY="210.0" promptText="add year of launch" />
+    <TextField fx:id="addMedia" layoutX="60.0" layoutY="250.0" promptText="add media" />
+    <TextField fx:id="addPrice" layoutX="60.0" layoutY="290.0" promptText="add price" />
+    <TextField fx:id="addURL" layoutX="60.0" layoutY="330.0" promptText="add URL" />
 
-    <Button layoutX="240.0" layoutY="93.0" onAction="#addGameMachine" prefHeight="25.0" prefWidth="137.0" text="Add Game Machine" />
-    <Button layoutX="240.0" layoutY="131.0" onAction="#displayGameMachine" text="Display Game Machine" />
-    <Button layoutX="240.0" layoutY="168.0" onAction="#switchToEdit" text="Back" />
-    <ScrollPane layoutX="240.0" layoutY="200.0" prefHeight="200.0" prefWidth="200.0">
+    <Button layoutX="240.0" layoutY="90.0" onAction="#addGameMachine" prefHeight="25.0" prefWidth="137.0" text="Add Game Machine" />
+    <Button layoutX="400.0" layoutY="90.0" onAction="#displayGameMachine" text="Display Game Machine" />
+    <Button layoutX="240.0" layoutY="130.0" onAction="#switchToAdd" prefHeight="25.0" prefWidth="137.0" text="Back" />
+    <ScrollPane layoutX="240.0" layoutY="170.0" prefHeight="185.0" prefWidth="330.0">
         <content>
-            <Label fx:id="display" prefHeight="183.0" prefWidth="719.0" />
+            <Label fx:id="display"/>
         </content>
     </ScrollPane>
-    <Button layoutX="398.0" layoutY="93.0" onAction="#removeGame" text="Remove Game Machine" />
-    <ChoiceBox fx:id="ChoiceBoxGMName" layoutX="398.0" layoutY="131.0" prefHeight="25.0" prefWidth="142.0" />
+    <Button layoutX="398.0" layoutY="43.0" onAction="#removeGame" text="Remove Game Machine" />
+    <ChoiceBox fx:id="ChoiceBoxGMName" layoutX="418.0" layoutY="55.0" prefHeight="25.0" prefWidth="142.0" />
 
 </AnchorPane>
