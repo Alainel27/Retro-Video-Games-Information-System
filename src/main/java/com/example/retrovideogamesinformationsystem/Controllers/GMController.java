@@ -42,7 +42,7 @@ public class GMController {
         gameMachine.setMachineName(machineName);
         gameMachine.setManufacturer(manufacturer);
         gameMachine.setType(OldMachine);
-        gameMachine.setType(media);
+        gameMachine.setMedia(media);
         gameMachine.setYearOfLaunch(year);
         gameMachine.setPrice(price);
         gameMachine.setUrl(URL);
