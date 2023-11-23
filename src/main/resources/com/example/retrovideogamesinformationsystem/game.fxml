@@ -3,7 +3,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.retrovideogamesinformationsystem.Controllers.GController">
+<AnchorPane prefHeight="607.0" prefWidth="792.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.retrovideogamesinformationsystem.Controllers.GController">
 
     <Label layoutX="265.0" layoutY="26.0" text="ADD A GAME" />
 
@@ -18,8 +18,21 @@
     <Button layoutX="240.0" layoutY="99.0" onAction="#addGame" prefHeight="25.0" prefWidth="88.0" text="Add Game" />
     <Button layoutX="240.0" layoutY="134.0" onAction="#displayGame" text="Display game" />
     <Button layoutX="240.0" layoutY="172.0" onAction="#switchToEdit" prefHeight="25.0" prefWidth="88.0" text="Back" />
-    <Label fx:id="display" layoutX="240.0" layoutY="213.0" prefHeight="172.0" prefWidth="745.0" />
-
+    <ScrollPane layoutX="240.0" layoutY="200.0" prefHeight="200.0" prefWidth="200.0">
+        <content>
+            <Label fx:id="display" prefHeight="183.0" prefWidth="719.0" />
+        </content>
+    </ScrollPane>
     <ChoiceBox fx:id="GameName" layoutX="339.0" layoutY="134.0" prefHeight="25.0" prefWidth="94.0" />
     <Button layoutX="339.0" layoutY="99.0" onAction="#removeGame" text="Remove Game" />
+
+    <ChoiceBox fx:id="GameToEditCB" layoutX="339.0" layoutY="54.0" prefHeight="25.0" prefWidth="94.0" />
+    <TextField fx:id="newName" layoutX="459.0" layoutY="172.0" promptText="name" />
+    <TextField fx:id="newPub" layoutX="626.0" layoutY="54.0" promptText="pub" />
+    <TextField fx:id="newDes" layoutX="626.0" layoutY="99.0" promptText="description" />
+    <TextField fx:id="newDevelop" layoutX="626.0" layoutY="134.0" promptText="dev" />
+    <TextField fx:id="newType" layoutX="459.0" layoutY="54.0" promptText="type" />
+    <TextField fx:id="newYear" layoutX="459.0" layoutY="134.0" promptText="year" />
+    <TextField fx:id="newCover" layoutX="459.0" layoutY="99.0" promptText="cover" />
+    <Button layoutX="240.0" layoutY="54.0" onAction="#updateGame" prefHeight="25.0" prefWidth="88.0" text="edit" />
 </AnchorPane>

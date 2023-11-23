@@ -24,19 +24,19 @@ public class SystemApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(SystemApplication.class.getResource("system-view.fxml"));
-        sceneSystem = new Scene(fxmlLoader.load(), 450, 400);
+        sceneSystem = new Scene(fxmlLoader.load(), 750, 400);
 
         fxmlLoader = new FXMLLoader(SystemApplication.class.getResource("game-machine.fxml"));
-        sceneGMachine = new Scene(fxmlLoader.load(), 550, 400);
+        sceneGMachine = new Scene(fxmlLoader.load(), 750, 400);
 
         fxmlLoader = new FXMLLoader(SystemApplication.class.getResource("game.fxml"));
-        sceneGame = new Scene(fxmlLoader.load(), 450, 400);
+        sceneGame = new Scene(fxmlLoader.load(), 750, 400);
 
         fxmlLoader = new FXMLLoader(SystemApplication.class.getResource("game-port.fxml"));
-        sceneGamePort = new Scene(fxmlLoader.load(), 550, 400);
+        sceneGamePort = new Scene(fxmlLoader.load(), 750, 400);
 
         fxmlLoader = new FXMLLoader(SystemApplication.class.getResource("edit.fxml"));
-        sceneEdit = new Scene(fxmlLoader.load(), 450, 400);
+        sceneEdit = new Scene(fxmlLoader.load(), 750, 400);
 
         stage.setTitle("System Controller");
         stage.setScene(sceneSystem);
@@ -68,6 +68,14 @@ public class SystemApplication extends Application {
             GController.contG.GameName.getItems().add(temp.getContents().getGameName());
             temp=temp.next;
         }
+        myNode<Game> temp1= SController.allGames.head;
+        GController.contG.GameToEditCB.getItems().clear();
+        while (temp1!=null){
+            GController.contG.GameToEditCB.getItems().add(temp1.getContents().getGameName());
+            temp1=temp1.next;
+        }
+
+
     }
     //switches to game port
     public static void switchSceneToGp(){

@@ -15,7 +15,11 @@
     <Button layoutX="240.0" layoutY="99.0" onAction="#addGamePort" text="Add Game Port" />
     <Button layoutX="240.0" layoutY="134.0" onAction="#displayGamePort" text="Display Game Port" />
     <Button layoutX="240.0" layoutY="172.0" onAction="#switchToEdit" text="Back" />
-    <Label fx:id="display" layoutX="265.0" layoutY="174.0" prefHeight="172.0" prefWidth="740.0" />
+    <ScrollPane layoutX="240.0" layoutY="200.0" prefHeight="200.0" prefWidth="200.0">
+        <content>
+            <Label fx:id="display" prefHeight="183.0" prefWidth="719.0" />
+        </content>
+    </ScrollPane>
     <Button layoutX="377.0" layoutY="99.0" onAction="#removeGame" text="Remove GamePort" />
     <ChoiceBox fx:id="ChoiceBoxGPGame" layoutX="377.0" layoutY="134.0" prefHeight="25.0" prefWidth="114.0" />
 </AnchorPane>
