@@ -35,24 +35,44 @@ public class SController {
         SystemApplication.switchSceneToAdd();
     }
     @FXML
-    private void switchToGame(){
-        SystemApplication.switchSceneToGame();
+    private void switchToAddGame(){
+        SystemApplication.switchSceneToAddGame();
     }
 
     @FXML
-    private void switchToGameMachine(){
-        SystemApplication.switchSceneToGM();
+    private void switchToAddGameMachine(){
+        SystemApplication.switchSceneToAddGM();
     }
 
     @FXML
-    private void switchToGamePort(){
-        SystemApplication.switchSceneToGp();
+    private void switchToAddGamePort(){
+        SystemApplication.switchSceneToAddGp();
     }
 
     @FXML
     private void switchToEdit(){
         SystemApplication.switchSceneToEdit();
     }
+
+    @FXML
+    private void switchToEditGame(){
+        SystemApplication.switchSceneToEditGame();
+    }
+
+    @FXML
+    private void switchToEditGameMachine(){
+        SystemApplication.switchSceneToEditGM();
+    }
+
+    @FXML
+    private void switchToEditGamePort(){
+        SystemApplication.switchSceneToEditGP();
+    }
+
+
+
+
+
 
 
 }

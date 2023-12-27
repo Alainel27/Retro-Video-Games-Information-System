@@ -23,7 +23,4 @@
             <Label fx:id="display"/>
         </content>
     </ScrollPane>
-    <Button layoutX="398.0" layoutY="43.0" onAction="#removeGame" text="Remove Game Machine" />
-    <ChoiceBox fx:id="ChoiceBoxGMName" layoutX="418.0" layoutY="55.0" prefHeight="25.0" prefWidth="142.0" />
-
 </AnchorPane>

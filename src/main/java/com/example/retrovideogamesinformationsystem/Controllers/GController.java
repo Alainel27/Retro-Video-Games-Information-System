@@ -100,12 +100,12 @@ public class GController {
 
     @FXML
     private void switchToGameMachine(){
-        SystemApplication.switchSceneToGM();
+        SystemApplication.switchSceneToAddGM();
     }
 
     @FXML
     private void switchToGamePort(){
-        SystemApplication.switchSceneToGp();
+        SystemApplication.switchSceneToAddGp();
     }
 
     @FXML

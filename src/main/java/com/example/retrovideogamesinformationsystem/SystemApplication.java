@@ -17,7 +17,7 @@ import java.io.IOException;
 
 public class SystemApplication extends Application {
 
-    public static Scene sceneSystem,sceneGMachine,sceneGame,sceneGamePort,sceneAdd,sceneEdit;
+    public static Scene sceneSystem,sceneAddGMachine,sceneAddGame,sceneAddGamePort,sceneAdd,sceneEdit,sceneEditGame,sceneEditGMachine,sceneEditGamePort;
 
     public static Stage primaryStage;
 
@@ -26,20 +26,29 @@ public class SystemApplication extends Application {
         FXMLLoader fxmlLoader = new FXMLLoader(SystemApplication.class.getResource("system-view.fxml"));
         sceneSystem = new Scene(fxmlLoader.load(), 550, 400);
 
-        fxmlLoader = new FXMLLoader(SystemApplication.class.getResource("game-machine.fxml"));
-        sceneGMachine = new Scene(fxmlLoader.load(), 550, 400);
+        fxmlLoader = new FXMLLoader(SystemApplication.class.getResource("Add/add-game-machine.fxml"));
+        sceneAddGMachine = new Scene(fxmlLoader.load(), 550, 400);
 
-        fxmlLoader = new FXMLLoader(SystemApplication.class.getResource("game.fxml"));
-        sceneGame = new Scene(fxmlLoader.load(), 550, 400);
+        fxmlLoader = new FXMLLoader(SystemApplication.class.getResource("Add/add-game.fxml"));
+        sceneAddGame = new Scene(fxmlLoader.load(), 550, 400);
 
-        fxmlLoader = new FXMLLoader(SystemApplication.class.getResource("game-port.fxml"));
-        sceneGamePort = new Scene(fxmlLoader.load(), 550, 400);
+        fxmlLoader = new FXMLLoader(SystemApplication.class.getResource("Add/add-game-port.fxml"));
+        sceneAddGamePort = new Scene(fxmlLoader.load(), 550, 400);
 
-        fxmlLoader = new FXMLLoader(SystemApplication.class.getResource("add.fxml"));
+        fxmlLoader = new FXMLLoader(SystemApplication.class.getResource("Add/add.fxml"));
         sceneAdd = new Scene(fxmlLoader.load(), 550, 400);
 
-        fxmlLoader = new FXMLLoader(SystemApplication.class.getResource("add.fxml"));
+        fxmlLoader = new FXMLLoader(SystemApplication.class.getResource("Edit/edit.fxml"));
         sceneEdit = new Scene(fxmlLoader.load(), 550, 400);
+
+        fxmlLoader = new FXMLLoader(SystemApplication.class.getResource("Edit/edit-game.fxml"));
+        sceneEditGame = new Scene(fxmlLoader.load(), 550, 400);
+
+        fxmlLoader = new FXMLLoader(SystemApplication.class.getResource("Edit/edit-gmachine.fxml"));
+        sceneEditGMachine = new Scene(fxmlLoader.load(), 550, 400);
+
+        fxmlLoader = new FXMLLoader(SystemApplication.class.getResource("Edit/edit-game-port.fxml"));
+        sceneEditGamePort = new Scene(fxmlLoader.load(), 550, 400);
 
         stage.setTitle("System Controller");
         stage.setScene(sceneSystem);
@@ -52,8 +61,8 @@ public class SystemApplication extends Application {
     }
 
     //switches to game machine
-    public static void switchSceneToGM(){
-        primaryStage.setScene(sceneGMachine);
+    public static void switchSceneToAddGM(){
+        primaryStage.setScene(sceneAddGMachine);
         myNode<GamesMachine> temp= SController.allGM.head;
         GMController.contGM.ChoiceBoxGMName.getItems().clear();
         while (temp!=null){
@@ -63,8 +72,8 @@ public class SystemApplication extends Application {
     }
 
     //switches to Game scene
-    public static void switchSceneToGame(){
-        primaryStage.setScene(sceneGame);
+    public static void switchSceneToAddGame(){
+        primaryStage.setScene(sceneAddGame);
         myNode<Game> temp= SController.allGames.head;
         GController.contG.GameName.getItems().clear();
         while (temp!=null){
@@ -73,8 +82,8 @@ public class SystemApplication extends Application {
         }
     }
     //switches to game port
-    public static void switchSceneToGp(){
-        primaryStage.setScene(sceneGamePort);
+    public static void switchSceneToAddGp(){
+        primaryStage.setScene(sceneAddGamePort);
         myNode<GamePort> temp= SController.allGP.head;
         GPController.contGP.ChoiceBoxGPGame.getItems().clear();
         while (temp!=null){
@@ -93,6 +102,18 @@ public class SystemApplication extends Application {
 
     public static void switchSceneToEdit(){
         primaryStage.setScene(sceneEdit);
+    }
+
+    public static void switchSceneToEditGame(){
+        primaryStage.setScene(sceneEditGame);
+    }
+
+    public static void switchSceneToEditGM(){
+        primaryStage.setScene(sceneEditGMachine);
+    }
+
+    public static void switchSceneToEditGP(){
+        primaryStage.setScene(sceneEditGamePort);
     }
 }
 

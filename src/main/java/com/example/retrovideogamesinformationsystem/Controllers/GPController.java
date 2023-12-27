@@ -88,12 +88,12 @@ public class GPController {
 
     @FXML
     private void switchToGameMachine(){
-        SystemApplication.switchSceneToGM();
+        SystemApplication.switchSceneToAddGM();
     }
 
     @FXML
     private void switchToGame(){
-        SystemApplication.switchSceneToGame();
+        SystemApplication.switchSceneToAddGame();
     }
 
     @FXML

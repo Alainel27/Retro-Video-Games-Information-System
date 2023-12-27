@@ -96,7 +96,7 @@ public class GMController {
     }
     @FXML
     private void switchToGame(){
-        SystemApplication.switchSceneToGame();
+        SystemApplication.switchSceneToAddGame();
     }
 
     @FXML
@@ -106,7 +106,7 @@ public class GMController {
 
     @FXML
     private void switchToGamePort(){
-        SystemApplication.switchSceneToGp();
+        SystemApplication.switchSceneToAddGp();
     }
 
     @FXML
