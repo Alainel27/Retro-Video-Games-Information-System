@@ -112,4 +112,9 @@ public class GController {
     private void switchToAdd(){
         SystemApplication.switchSceneToAdd();
     }
+
+    @FXML
+    private void switchToEdit(){
+        SystemApplication.switchSceneToEdit();
+    }
 }

@@ -114,4 +114,9 @@ public class GMController {
         SystemApplication.switchSceneToAdd();
     }
 
+    @FXML
+    private void switchToEdit(){
+        SystemApplication.switchSceneToEdit();
+    }
+
 }
