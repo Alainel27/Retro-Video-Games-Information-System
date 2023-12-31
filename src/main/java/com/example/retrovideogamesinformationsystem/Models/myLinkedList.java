@@ -41,7 +41,15 @@ public class myLinkedList<L> {
         return false;
     }
 
-
-
+    public boolean edit(L oldContent, L newContent){
+        while (head != null){
+            if(oldContent.equals(head.getContents())){
+                head.setContents(newContent);
+                return true;
+            }
+            head = head.next;
+        }
+        return false;
+    }
 }
 

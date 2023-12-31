@@ -4,22 +4,22 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.retrovideogamesinformationsystem.Controllers.GController">
+<VBox xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.retrovideogamesinformationsystem.Controllers.GController">
 
     <Label layoutX="204.0" layoutY="27.0" text="EDIT A GAME ">
         <font>
             <Font size="21.0" />
         </font></Label>
 
-    <TextField fx:id="addGameName" layoutX="75.0" layoutY="90.0" promptText="add game name" />
-    <TextField fx:id="addPublisher" layoutX="75.0" layoutY="130.0" promptText="add publisher" />
-    <TextField fx:id="addDescription" layoutX="75.0" layoutY="170.0" promptText="add description" />
-    <TextField fx:id="addDeveloper" layoutX="75.0" layoutY="210.0" promptText="add developer of game" />
-    <TextField fx:id="addType" layoutX="75.0" layoutY="250.0" promptText="add type" />
-    <TextField fx:id="addYearOfRelease" layoutX="75.0" layoutY="290.0" promptText="add the year of release" />
-    <TextField fx:id="addCover" layoutX="75.0" layoutY="330.0" prefHeight="25.0" prefWidth="149.0" promptText="add cover" />
+    <TextField fx:id="newName" layoutX="75.0" layoutY="90.0" promptText="Edit game name" />
+    <TextField fx:id="newPub" layoutX="75.0" layoutY="130.0" promptText="Edit publisher" />
+    <TextField fx:id="newDes" layoutX="75.0" layoutY="170.0" promptText="Edit description" />
+    <TextField fx:id="newDevelop" layoutX="75.0" layoutY="210.0" promptText="Edit developer of game" />
+    <TextField fx:id="newType" layoutX="75.0" layoutY="250.0" promptText="Edit type" />
+    <TextField fx:id="newYear" layoutX="75.0" layoutY="290.0" promptText="Edit the year of release" />
+    <TextField fx:id="newCover" layoutX="75.0" layoutY="330.0" prefHeight="25.0" prefWidth="149.0" promptText="Edit cover" />
 
-    <Button layoutX="240.0" layoutY="90.0" onAction="#addGame" prefHeight="25.0" prefWidth="149.0" text="Add Game" />
+    <Button layoutX="240.0" layoutY="90.0" onAction="#updateGame" prefHeight="25.0" prefWidth="149.0" text="Edit Game" />
     <Button layoutX="399.0" layoutY="90.0" onAction="#displayGame" prefHeight="25.0" prefWidth="149.0" text="Display Games" />
     <Button layoutX="240.0" layoutY="130.0" onAction="#switchToEdit" prefHeight="25.0" prefWidth="149.0" text="Back" />
     <ScrollPane layoutX="240.0" layoutY="170.0" prefHeight="185.0" prefWidth="330.0">
@@ -30,4 +30,4 @@
 
     <ChoiceBox fx:id="GameName" layoutX="399.0" layoutY="60.0" prefHeight="25.0" prefWidth="94.0" />
     <Button layoutX="466.0" layoutY="30.0" onAction="#removeGame" text="Remove" />
-</AnchorPane>
+</VBox>

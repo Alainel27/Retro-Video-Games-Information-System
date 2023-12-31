@@ -1,7 +1,5 @@
 package com.example.retrovideogamesinformationsystem.Controllers;
 
-import com.example.retrovideogamesinformationsystem.Models.GamesMachine;
-import com.example.retrovideogamesinformationsystem.Models.myLinkedList;
 import com.example.retrovideogamesinformationsystem.Models.GamePort;
 import com.example.retrovideogamesinformationsystem.Models.myNode;
 import com.example.retrovideogamesinformationsystem.SystemApplication;

@@ -1,6 +1,5 @@
 package com.example.retrovideogamesinformationsystem.Controllers;
 
-import com.example.retrovideogamesinformationsystem.Models.Game;
 import com.example.retrovideogamesinformationsystem.Models.GamesMachine;
 import com.example.retrovideogamesinformationsystem.Models.myNode;
 import com.example.retrovideogamesinformationsystem.SystemApplication;
@@ -8,11 +7,9 @@ import javafx.fxml.FXML;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.scene.text.Text;
+
 
 public class GMController {
-
-
 
     //the following code is for the other classes so there this class can be assessed easily.
     public static GMController contGM;

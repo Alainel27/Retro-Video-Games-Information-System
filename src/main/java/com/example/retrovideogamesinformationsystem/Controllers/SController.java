@@ -7,6 +7,8 @@ import com.example.retrovideogamesinformationsystem.Models.myLinkedList;
 import com.example.retrovideogamesinformationsystem.SystemApplication;
 import javafx.fxml.FXML;
 
+import java.util.HashMap;
+
 public class SController {
 
 
@@ -16,6 +18,8 @@ public class SController {
     private void initialize(){
         contS=this;
     }
+
+    public static HashMap<String,Game> gameHashMap = new HashMap<>();
 
     public static myLinkedList<Game> allGames = new myLinkedList<>();
 
