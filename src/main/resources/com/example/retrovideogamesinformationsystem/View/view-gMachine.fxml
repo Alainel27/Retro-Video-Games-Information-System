@@ -20,6 +20,6 @@
         </content>
     </ScrollPane>
 
-    <Button onAction="#searching" text="Search For Name"/>
+    <Button layoutX="289.0" layoutY="120.0" onAction="#searching" prefHeight="35.0" prefWidth="183.0" text="Search For Name" />
     <TextField fx:id="searchTF" layoutX="288.0" layoutY="78.0" prefHeight="25.0" prefWidth="183.0" promptText="Search Name of Game Machine" />
 </AnchorPane>
