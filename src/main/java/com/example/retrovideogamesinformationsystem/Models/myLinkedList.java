@@ -24,7 +24,6 @@ public class myLinkedList<L> {
         return list;
     }
 
-    //this is your method sean I dunno how works
     public boolean remove(Object o) {
         if (head == null) {
             return false;
@@ -46,7 +45,15 @@ public class myLinkedList<L> {
     //search
 
 
-
-
+    public boolean edit(L oldContent, L newContent){
+        while (head != null){
+            if(oldContent.equals(head.getContents())){
+                head.setContents(newContent);
+                return true;
+            }
+            head = head.next;
+        }
+        return false;
+    }
 }
 

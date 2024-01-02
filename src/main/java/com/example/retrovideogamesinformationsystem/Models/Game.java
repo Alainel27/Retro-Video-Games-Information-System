@@ -1,5 +1,7 @@
 package com.example.retrovideogamesinformationsystem.Models;
 
+import java.util.Objects;
+
 public class Game {
 
     private String gameName = "";
@@ -82,15 +84,29 @@ public class Game {
         this.cover = cover;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Game game = (Game) o;
+        return yearOfRelease == game.yearOfRelease && Objects.equals(gameName, game.gameName) && Objects.equals(publisher, game.publisher) && Objects.equals(description, game.description) && Objects.equals(developer, game.developer) && Objects.equals(type, game.type) && Objects.equals(cover, game.cover);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(gameName, publisher, description, developer, type, yearOfRelease, cover);
+    }
+
     public String toString() {
-        return "Game{" +
-                "gameName='" + gameName + '\'' +
-                ", publisher='" + publisher + '\'' +
-                ", description='" + description + '\'' +
-                ", developer='" + developer + '\'' +
-                ", type='" + type + '\'' +
-                ", yearOfRelease=" + yearOfRelease +
-                ", cover='" + cover + '\'' +
-                '}';
+        return
+                "Game Name= " + gameName +
+                ", Publisher= " + publisher +
+                ", Description= " + description +
+                ", Developer= " + developer +
+                ", Type= " + type +
+                ", YearOfRelease= " + yearOfRelease +
+                ", Cover= " + cover +
+                '\n';
     }
 }
+

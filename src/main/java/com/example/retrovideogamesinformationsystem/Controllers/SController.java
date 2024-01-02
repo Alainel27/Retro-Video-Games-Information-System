@@ -7,6 +7,8 @@ import com.example.retrovideogamesinformationsystem.Models.myLinkedList;
 import com.example.retrovideogamesinformationsystem.SystemApplication;
 import javafx.fxml.FXML;
 
+import java.util.HashMap;
+
 public class SController {
 
 
@@ -22,6 +24,7 @@ public class SController {
     public static myLinkedList<GamesMachine> allGM = new myLinkedList<>();
 
     public static myLinkedList<GamePort> allGP = new myLinkedList<>();
+
 
 
     //put the switching methods at the bottom of code
