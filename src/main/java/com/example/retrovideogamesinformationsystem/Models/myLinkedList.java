@@ -26,15 +26,23 @@ public class myLinkedList<L> {
 
     //this is your method sean I dunno how works
     public boolean remove(Object o) {
+        //if head equal null return false
         if (head == null) {
             return false;
         }
+
+        //if o is equal to the contents of the head return true
         if (o == head.getContents()){
+            //go through the linked list
             head = head.next;
             return true;
         }
+        //create a temp node at head
         myNode<L> remove = head;
-        while (remove.next != null) {
+        //while temp node is not null
+        while (remove.next != null)
+        {
+
             if (remove.next.getContents().equals(o)) {
                 remove.next = remove.next.next;
                 return true;
@@ -46,6 +54,20 @@ public class myLinkedList<L> {
     //search
 
 
+
+
+
+    public boolean edit(L oldC, L newC) {
+
+        while (head != null) {
+            if (oldC.equals(head.getContents())) {
+                head.setContents(newC);
+                return true;
+            }
+            head = head.next;
+        }
+        return false;
+    }
 
 
 }
