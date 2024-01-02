@@ -1,5 +1,8 @@
 package com.example.retrovideogamesinformationsystem.Models;
 
+import com.example.retrovideogamesinformationsystem.Controllers.GMController;
+import com.example.retrovideogamesinformationsystem.Controllers.SController;
+
 public class myLinkedList<L> {
 
     public myNode<L> head = null;
@@ -40,6 +43,8 @@ public class myLinkedList<L> {
         }
         return false;
     }
+    //search
+
 
 
 

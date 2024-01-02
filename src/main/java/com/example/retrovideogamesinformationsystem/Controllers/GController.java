@@ -74,7 +74,7 @@ public class GController {
 
     }
 
-    //MOTHA FUKING WORKS
+
     @FXML
     private void removeGame(){
         //get the name of the game from the choice box
@@ -101,7 +101,7 @@ public class GController {
         Game selectedGame = getGameByName(selectedGameName);
 
         if (selectedGame != null) {
-            // OBTAIN THA DATA
+            // OBTAIN THE DATA
             String newNameValue = newName.getText();
             String newPubValue = newPub.getText();
             String newDesValue = newDes.getText();
@@ -110,7 +110,7 @@ public class GController {
             int newYearValue = Integer.parseInt(newYear.getText());
             String newCoverValue = newCover.getText();
 
-            // UPDATE THA MOTHAFUKER
+            // UPDATE THA
             selectedGame.setGameName(newNameValue);
             selectedGame.setPublisher(newPubValue);
             selectedGame.setDescription(newDesValue);
@@ -156,4 +156,11 @@ public class GController {
     private void switchToAdd(){
         SystemApplication.switchSceneToAdd();
     }
+
+    @FXML
+    private void switchToEdit(){
+        SystemApplication.switchSceneToEdit();
+    }
 }
+
+

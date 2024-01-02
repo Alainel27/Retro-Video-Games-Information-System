@@ -69,6 +69,11 @@ public class SController {
         SystemApplication.switchSceneToEditGP();
     }
 
+    @FXML
+    private void switchToViewSystem(){
+        SystemApplication.switchSceneToViewSystem();
+    }
+
 
 
 

@@ -101,4 +101,8 @@ public class GPController {
         SystemApplication.switchSceneToAdd();
     }
 
+    @FXML
+    private void switchToEdit(){
+        SystemApplication.switchSceneToEdit();
+    }
 }

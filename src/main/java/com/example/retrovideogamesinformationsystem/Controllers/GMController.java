@@ -90,10 +90,46 @@ public class GMController {
 
     }
 
+    //SEARCHING METHOD AND DISPLAYING METHODS
+
+    public String search(String searchName){
+        myNode<GamesMachine> temp = SController.allGM.head;
+        while (temp != null) {
+            GamesMachine gamesMachine = temp.getContents();
+
+            if (gamesMachine.getMachineName().equalsIgnoreCase(searchName)){
+                return "Game Machine: " + gamesMachine.getMachineName() + " " + gamesMachine.getManufacturer();
+            }
+
+            temp=temp.next;
+        }
+
+        return null;
+    }
+
+
+
+    @FXML
+    public TextField searchTF;
+
+    @FXML
+    private void searching(){
+        String name = searchTF.getText();
+        String list = search(name);
+        display.setText(list);
+
+    }
     @FXML
     private void displayGameMachine(){
         display.setText(SController.allGM.display());
     }
+
+
+
+
+
+
+
     @FXML
     private void switchToGame(){
         SystemApplication.switchSceneToAddGame();
@@ -114,4 +150,13 @@ public class GMController {
         SystemApplication.switchSceneToAdd();
     }
 
+    @FXML
+    private void switchToEdit(){
+        SystemApplication.switchSceneToEdit();
+    }
+
+    @FXML
+    private void switchToViewSystem(){
+        SystemApplication.switchSceneToViewSystem();
+    }
 }
