@@ -3,7 +3,6 @@ package com.example.retrovideogamesinformationsystem.Controllers;
 import com.example.retrovideogamesinformationsystem.Models.Game;
 import com.example.retrovideogamesinformationsystem.SystemApplication;
 import javafx.fxml.FXML;
-
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
@@ -17,7 +16,6 @@ public class GController {
     private void initialize(){
         contG=this;
     }
-
 
     @FXML
     private TextField addGameName, addPublisher, addDescription, addDeveloper, addType, addYearOfRelease, addCover;
@@ -34,16 +32,16 @@ public class GController {
         int yearOfRelease = Integer.parseInt(addYearOfRelease.getText());
         String cover = addCover.getText();
 
-        Game g = new Game(gameName,publisher,description,developer,type,yearOfRelease,cover);
-        g.setGameName(gameName);
-        g.setPublisher(publisher);
-        g.setDescription(description);
-        g.setDeveloper(developer);
-        g.setType(type);
-        g.setYearOfRelease(yearOfRelease);
-        g.setCover(cover);
+        Game game = new Game(gameName,publisher,description,developer,type,yearOfRelease,cover);
+        game.setGameName(gameName);
+        game.setPublisher(publisher);
+        game.setDescription(description);
+        game.setDeveloper(developer);
+        game.setType(type);
+        game.setYearOfRelease(yearOfRelease);
+        game.setCover(cover);
 
-        SController.gameHashMap.put(gameName,g);
+        SController.allGames.add(game);
 
         addGameName.clear();
         addPublisher.clear();
@@ -54,19 +52,23 @@ public class GController {
         addCover.clear();
     }
 
-    @FXML
-    public ChoiceBox<String> GameName;
-
     //PETER MADE THIS CODE FOR ME SEAN
-    public static Game getGameByName(String gameName){
-       return SController.gameHashMap.get(gameName);
+    public Game getGameByName(String gameName){
+      myNode<Game> temp = SController.allGames.head;
+
+      while (temp != null && !temp.getContents().getGameName().equals(gameName)){
+          temp = temp.next;
+      }
+      return (temp == null) ? null : temp.getContents();
     }
 
-    //MOTHA FUKING WORKS
     @FXML
     private void removeGame(){
-        String selectedGameName = GameName.getValue();
-        SController.gameHashMap.remove(selectedGameName);
+        Game game = getGameByName(GameToEditCB.getValue());
+
+        if (game != null){
+            SController.allGames.remove(game);
+        }
     }
 
     @FXML
@@ -80,26 +82,26 @@ public class GController {
         //create a string with the value of the game data from choiceBox
         String selectedGameName = GameToEditCB.getValue();
 
-        Game selectedGame = SController.gameHashMap.get(selectedGameName);
+        Game selectedGame = getGameByName(selectedGameName);
 
         if (selectedGame != null) {
             // OBTAIN THA DATA
-            String newNameValue = newName.getText();
-            String newPubValue = newPub.getText();
-            String newDesValue = newDes.getText();
-            String newDevelopValue = newDevelop.getText();
-            String newTypeValue = newType.getText();
-            int newYearValue = Integer.parseInt(newYear.getText());
-            String newCoverValue = newCover.getText();
+            String NameValue = newName.getText();
+            String PubValue = newPub.getText();
+            String DesValue = newDes.getText();
+            String DevelopValue = newDevelop.getText();
+            String TypeValue = newType.getText();
+            int YearValue = Integer.parseInt(newYear.getText());
+            String CoverValue = newCover.getText();
 
             // UPDATE THA MOTHAFUKER
-            selectedGame.setGameName(newNameValue);
-            selectedGame.setPublisher(newPubValue);
-            selectedGame.setDescription(newDesValue);
-            selectedGame.setDeveloper(newDevelopValue);
-            selectedGame.setType(newTypeValue);
-            selectedGame.setYearOfRelease(newYearValue);
-            selectedGame.setCover(newCoverValue);
+            selectedGame.setGameName(NameValue);
+            selectedGame.setPublisher(PubValue);
+            selectedGame.setDescription(DesValue);
+            selectedGame.setDeveloper(DevelopValue);
+            selectedGame.setType(TypeValue);
+            selectedGame.setYearOfRelease(YearValue);
+            selectedGame.setCover(CoverValue);
 
             newName.clear();
             newPub.clear();
@@ -115,7 +117,7 @@ public class GController {
 
     @FXML
     protected void displayGame(){
-        display.setText(SController.gameHashMap.values().toString());
+        display.setText(SController.allGames.display());
     }
 
     @FXML

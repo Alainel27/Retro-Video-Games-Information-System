@@ -1,5 +1,7 @@
 package com.example.retrovideogamesinformationsystem.Models;
 
+import java.util.Objects;
+
 public class GamePort {
 
     private String portedGame = "";
@@ -47,6 +49,19 @@ public class GamePort {
 
     public void setCover(String cover) {
         this.cover = cover;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        GamePort gamePort = (GamePort) o;
+        return portReleaseYear == gamePort.portReleaseYear && Objects.equals(portedGame, gamePort.portedGame) && Objects.equals(portDeveloper, gamePort.portDeveloper) && Objects.equals(cover, gamePort.cover);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(portedGame, portDeveloper, portReleaseYear, cover);
     }
 
     @Override

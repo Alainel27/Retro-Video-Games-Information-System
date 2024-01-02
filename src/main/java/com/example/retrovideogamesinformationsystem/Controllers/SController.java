@@ -19,13 +19,12 @@ public class SController {
         contS=this;
     }
 
-    public static HashMap<String,Game> gameHashMap = new HashMap<>();
-
     public static myLinkedList<Game> allGames = new myLinkedList<>();
 
     public static myLinkedList<GamesMachine> allGM = new myLinkedList<>();
 
     public static myLinkedList<GamePort> allGP = new myLinkedList<>();
+
 
 
     //put the switching methods at the bottom of code

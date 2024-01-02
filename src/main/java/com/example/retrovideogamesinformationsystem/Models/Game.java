@@ -98,7 +98,7 @@ public class Game {
     }
 
     public String toString() {
-        return  '\n' +
+        return
                 "Game Name= " + gameName +
                 ", Publisher= " + publisher +
                 ", Description= " + description +

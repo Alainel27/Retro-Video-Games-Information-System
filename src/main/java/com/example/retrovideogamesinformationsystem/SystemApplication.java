@@ -63,23 +63,18 @@ public class SystemApplication extends Application {
     //switches to game machine
     public static void switchSceneToAddGM(){
         primaryStage.setScene(sceneAddGMachine);
-        myNode<GamesMachine> temp= SController.allGM.head;
-        GMController.contGM.ChoiceBoxGMName.getItems().clear();
-        while (temp!=null){
-            GMController.contGM.ChoiceBoxGMName.getItems().add(temp.getContents().getMachineName());
-            temp=temp.next;
-        }
+        //myNode<GamesMachine> temp= SController.allGM.head;
+        //GMController.contGM.ChoiceBoxGMName.getItems().clear();
+        //while (temp!=null){
+            //GMController.contGM.ChoiceBoxGMName.getItems().add(temp.getContents().getMachineName());
+            //temp=temp.next;
+        //}
     }
 
     //switches to Game scene
     public static void switchSceneToAddGame(){
         primaryStage.setScene(sceneAddGame);
-        myNode<Game> temp= SController.allGames.head;
-        GController.contG.GameName.getItems().clear();
-        while (temp!=null){
-            GController.contG.GameName.getItems().add(temp.getContents().getGameName());
-            temp=temp.next;
-        }
+
     }
     //switches to game port
     public static void switchSceneToAddGp(){
@@ -106,6 +101,12 @@ public class SystemApplication extends Application {
 
     public static void switchSceneToEditGame(){
         primaryStage.setScene(sceneEditGame);
+        GController.contG.GameToEditCB.getItems().clear();
+        myNode<Game> temp= SController.allGames.head;
+        while (temp!=null){
+            GController.contG.GameToEditCB.getItems().add(temp.getContents().getGameName());
+            temp=temp.next;
+        }
     }
 
     public static void switchSceneToEditGM(){

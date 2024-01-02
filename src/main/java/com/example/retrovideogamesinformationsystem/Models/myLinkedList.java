@@ -21,7 +21,6 @@ public class myLinkedList<L> {
         return list;
     }
 
-    //this is your method sean I dunno how works
     public boolean remove(Object o) {
         if (head == null) {
             return false;
