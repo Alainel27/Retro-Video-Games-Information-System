@@ -17,7 +17,7 @@ import java.io.IOException;
 
 public class SystemApplication extends Application {
 
-    public static Scene sceneSystem,sceneAddGMachine,sceneAddGame,sceneAddGamePort,sceneAdd,sceneEdit,sceneEditGame,sceneEditGMachine,sceneEditGamePort;
+    public static Scene sceneSystem,sceneAddGMachine,sceneAddGame,sceneAddGamePort,sceneAdd,sceneEdit,sceneEditGame,sceneEditGMachine,sceneEditGamePort,sceneViewSystem,sceneViewGM;
 
     public static Stage primaryStage;
 
@@ -49,6 +49,13 @@ public class SystemApplication extends Application {
 
         fxmlLoader = new FXMLLoader(SystemApplication.class.getResource("Edit/edit-game-port.fxml"));
         sceneEditGamePort = new Scene(fxmlLoader.load(), 550, 400);
+
+        fxmlLoader = new FXMLLoader(SystemApplication.class.getResource("View/view-system.fxml"));
+        sceneViewSystem = new Scene(fxmlLoader.load(), 550, 400);
+
+        fxmlLoader = new FXMLLoader(SystemApplication.class.getResource("View/view-gMachine.fxml"));
+        sceneViewGM = new Scene(fxmlLoader.load(), 550, 400);
+
 
         stage.setTitle("System Controller");
         stage.setScene(sceneSystem);
@@ -116,6 +123,13 @@ public class SystemApplication extends Application {
     public static void switchSceneToEditGP(){
         primaryStage.setScene(sceneEditGamePort);
     }
+
+    public static void switchSceneToViewSystem(){
+        primaryStage.setScene(sceneViewSystem);
+    }
+
+    public static void switchSceneToViewGM(){primaryStage.setScene(sceneViewGM);}
 }
+
 
 //test

@@ -114,6 +114,50 @@ public class GController {
         }
     }
 
+    @FXML
+    private TextField newName,newPub,newDes,newDevelop,newType,newYear,newCover;
+
+    @FXML
+    public ChoiceBox<String> GameToEditCB;
+
+    @FXML
+    private void updateGame() {
+        //create a string with the value of the game data from choiceBox
+        String selectedGameName = GameToEditCB.getValue();
+
+        Game selectedGame = getGameByName(selectedGameName);
+
+        if (selectedGame != null) {
+            // OBTAIN THE DATA
+            String newNameValue = newName.getText();
+            String newPubValue = newPub.getText();
+            String newDesValue = newDes.getText();
+            String newDevelopValue = newDevelop.getText();
+            String newTypeValue = newType.getText();
+            int newYearValue = Integer.parseInt(newYear.getText());
+            String newCoverValue = newCover.getText();
+
+            // UPDATE THA
+            selectedGame.setGameName(newNameValue);
+            selectedGame.setPublisher(newPubValue);
+            selectedGame.setDescription(newDesValue);
+            selectedGame.setDeveloper(newDevelopValue);
+            selectedGame.setType(newTypeValue);
+            selectedGame.setYearOfRelease(newYearValue);
+            selectedGame.setCover(newCoverValue);
+
+            newName.clear();
+            newPub.clear();
+            newDes.clear();
+            newDevelop.clear();
+            newType.clear();
+            newYear.clear();
+            newCover.clear();
+
+        }
+    }
+
+
 
     @FXML
     protected void displayGame(){
@@ -145,3 +189,5 @@ public class GController {
         SystemApplication.switchSceneToEdit();
     }
 }
+
+
