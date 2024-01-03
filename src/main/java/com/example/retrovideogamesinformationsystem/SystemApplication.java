@@ -127,6 +127,7 @@ public class SystemApplication extends Application {
         }
     }
 
+
     public static void switchSceneToEditGP() {
         primaryStage.setScene(sceneEditGamePort);
         GPController.contGP.ChoiceBoxGPGame.getItems().clear();
