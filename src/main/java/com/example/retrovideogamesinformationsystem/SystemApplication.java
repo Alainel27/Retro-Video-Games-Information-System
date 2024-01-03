@@ -118,10 +118,22 @@ public class SystemApplication extends Application {
 
     public static void switchSceneToEditGM(){
         primaryStage.setScene(sceneEditGMachine);
+        GMController.contGM.ChoiceBoxGMName.getItems().clear();
+        myNode<GamesMachine> temp= SController.allGM.head;
+        while (temp!=null){
+            GMController.contGM.ChoiceBoxGMName.getItems().add(temp.getContents().getMachineName());
+            temp=temp.next;
+        }
     }
 
     public static void switchSceneToEditGP(){
         primaryStage.setScene(sceneEditGamePort);
+        GPController.contGP.ChoiceBoxGPGame.getItems().clear();
+        myNode<GamePort> temp= SController.allGP.head;
+        while (temp!=null){
+            GPController.contGP.ChoiceBoxGPGame.getItems().add(temp.getContents().getPortedGame());
+            temp=temp.next;
+        }
     }
 
     public static void switchSceneToViewSystem(){
