@@ -15,9 +15,9 @@
     <TextField fx:id="addPortDeveloper" layoutX="50.0" layoutY="135.0" promptText="Enter Port Developer" />
     <TextField fx:id="addPortReleaseYear" layoutX="50.0" layoutY="170.0" promptText="Enter Port Release Year" />
     <TextField fx:id="addCover" layoutX="50.0" layoutY="210.0" promptText="Enter Port Cover" />
-
+  
     <Button layoutX="220.0" layoutY="100.0" onAction="#addGamePort" prefHeight="25.0" prefWidth="150.0" text="Add Game Port" />
-    <Button layoutX="390.0" layoutY="100.0" onAction="#displayGamePort" prefHeight="25.0" prefWidth="150.0" text="Display Game Port" />
+    <Button layoutX="385.0" layoutY="100.0" onAction="#displayGamePort" prefHeight="25.0" prefWidth="68.0" text="Display" />
     <Button layoutX="220.0" layoutY="135.0" onAction="#switchToEdit" prefHeight="25.0" prefWidth="150.0" text="Back" />
     <ScrollPane layoutX="220.0" layoutY="170.0" prefHeight="121.0" prefWidth="310.0">
         <content>
@@ -25,6 +25,6 @@
         </content>
     </ScrollPane>
 
-    <Button layoutX="399.0" layoutY="30.0" onAction="#removeGame" text="Remove GamePort" />
-    <ChoiceBox fx:id="ChoiceBoxGPGame" layoutX="400.0" layoutY="55.0" prefHeight="25.0" prefWidth="114.0" />
+    <Button layoutX="466.0" layoutY="100.0" onAction="#removeGamePort" prefHeight="25.0" prefWidth="68.0" text="Remove" />
+    <ChoiceBox fx:id="ChoiceBoxGPGame" layoutX="385.0" layoutY="135.0" prefHeight="25.0" prefWidth="149.0" />
 </AnchorPane>

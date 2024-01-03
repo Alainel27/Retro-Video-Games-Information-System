@@ -1,9 +1,6 @@
 package com.example.retrovideogamesinformationsystem.Controllers;
 
-import com.example.retrovideogamesinformationsystem.Models.GamesMachine;
-import com.example.retrovideogamesinformationsystem.Models.myLinkedList;
-import com.example.retrovideogamesinformationsystem.Models.GamePort;
-import com.example.retrovideogamesinformationsystem.Models.myNode;
+import com.example.retrovideogamesinformationsystem.Models.*;
 import com.example.retrovideogamesinformationsystem.SystemApplication;
 import javafx.fxml.FXML;
 import javafx.scene.control.ChoiceBox;
@@ -26,6 +23,12 @@ public class GPController {
     private Label display;
 
     @FXML
+    public ChoiceBox<String> ChoiceBoxGPGame;
+
+    @FXML
+    private TextField newPortedGame, newPortDeveloper, newPortReleaseYear, newCover;
+
+    @FXML
     protected void addGamePort(){
         String portedGame = addPortedGame.getText();
         String portDeveloper = addPortDeveloper.getText();
@@ -46,35 +49,100 @@ public class GPController {
         addCover.clear();
     }
 
+    public static GamePort getGamePortGame(String gamePortGame) {
+        myNode<GamePort> temp = SController.allGP.head;
 
-    @FXML
-    public ChoiceBox<String> ChoiceBoxGPGame;
-
-    public static GamePort getGamePortGame(String GamePortGame){
-        //create temp node at head
-        myNode<GamePort> temp=SController.allGP.head;
-
-        //Iterate linkedList until end or matching port name
-        while (temp!=null && !temp.getContents().getPortedGame().equals(GamePortGame)){
+        while (temp != null && !temp.getContents().getPortedGame().equals(gamePortGame)){
             temp = temp.next;
         }
-
-        //if temp is null return null else return the contents of node
-        return temp==null ? null : temp.getContents();
-        //if(temp==null) return null; else return temp.getContents();
-
+        return temp == null ? null : temp.getContents();
     }
 
     @FXML
-    private void removeGame(){
-        //get the name of the game from the choice box
+    private void removeGamePort(){
         GamePort gamePort = getGamePortGame(ChoiceBoxGPGame.getValue());
-        //if the game is not null the game with the same name will be removed
-        if (gamePort!= null){
-            SController.allGP.remove(gamePort);
-        }
 
+        if (gamePort != null){
+            SController.allGames.remove(gamePort);
+        }
     }
+
+    @FXML
+    private void updatePort(){
+        String selectedGamePort = ChoiceBoxGPGame.getValue();
+
+        GamePort selectedPort = getGamePortGame(selectedGamePort);
+
+        if (selectedPort != null){
+            String portedGameValue = newPortedGame.getText();
+            String portDeveloperValue = newPortDeveloper.getText();
+            int portReleaseYear = Integer.parseInt(newPortReleaseYear.getText());
+            String portCover = newCover.getText();
+
+            selectedPort.setPortedGame(portedGameValue);
+            selectedPort.setPortDeveloper(portDeveloperValue);
+            selectedPort.setPortReleaseYear(portReleaseYear);
+            selectedPort.setCover(portCover);
+
+
+            newPortedGame.clear();
+            newPortDeveloper.clear();
+            newPortReleaseYear.clear();
+            newCover.clear();
+
+        }
+    }
+
+    //Sorting
+
+    private void swapGamePort(myLinkedList<GamePort> gamePort, int i, int j){
+        GamePort small = gamePort.get(i);
+        GamePort big = gamePort.get(j);
+
+        gamePort.set(i,big);
+        gamePort.set(j,small);
+    }
+
+    public myLinkedList<GamePort> sortByYearAscending(myLinkedList<GamePort> list){
+        for(int i = list.size() - 1;i >=0; i--){
+            int highestYear = 0;
+            for(int j = 0;j <= i;j++) {
+                if (list.get(j).getPortReleaseYear() < SController.allGP.get(highestYear).getPortReleaseYear()) {
+                    highestYear = j;
+                }
+            }
+            swapGamePort(list,i,highestYear);
+        }
+        return list;
+    }
+
+    public myLinkedList<GamePort> sortByYearDescending(myLinkedList<GamePort> list){
+        for(int i = SController.allGP.size() - 1;i >=0; i--){
+            int lowestYear = 0;
+            for(int j = 0;j <= i;j++) {
+                if (SController.allGP.get(j).getPortReleaseYear() > SController.allGP.get(lowestYear).getPortReleaseYear()) {
+                    lowestYear = j;
+                }
+            }
+            swapGamePort(SController.allGP,i,lowestYear);
+        }
+        return list;
+    }
+
+    @FXML
+    private void ascendingSortDisplay(){
+        myLinkedList<GamePort> sortA = sortByYearAscending(SController.allGP);
+
+        display.setText(sortA.display());
+    }
+
+    @FXML
+    private void descendingSortDisplay(){
+        myLinkedList<GamePort> sortD = sortByYearDescending(SController.allGP);
+
+        display.setText(sortD.display());
+    }
+
 
     @FXML
     protected void displayGamePort(){
@@ -105,4 +173,10 @@ public class GPController {
     private void switchToEdit(){
         SystemApplication.switchSceneToEdit();
     }
+
+    @FXML
+    private void switchToViewSystem(){
+        SystemApplication.switchSceneToViewSystem();
+    }
+
 }

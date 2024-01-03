@@ -1,18 +1,54 @@
 package com.example.retrovideogamesinformationsystem.Models;
 
-import com.example.retrovideogamesinformationsystem.Controllers.GMController;
-import com.example.retrovideogamesinformationsystem.Controllers.SController;
-
 public class myLinkedList<L> {
-
     public myNode<L> head = null;
+    private int size;
 
+    public int size(){
+        return size;
+    }
+
+    //Adds a new item to the beginning of the list and increases the size
     public void add(L N) {
         myNode<L> add = new myNode<>();
         add.setContents(N);
         add.next = head;
         head = add;
+        size ++;
     }
+
+    //Gets the contents of the index in the list
+    public L get(int index) {
+
+        myNode<L> current = head;
+        int currentIndex = 0;
+
+        while (current != null) {
+            if (currentIndex == index) {
+                return current.getContents();
+            }
+            current = current.getNext();
+            currentIndex++;
+        }
+        return null;
+    }
+
+    //Sets the
+    public void set(int index, L newContents){
+
+        myNode<L> current= head;
+        int currentIndex = 0;
+
+        while (current != null){
+            if (currentIndex == index){
+                current.setContents(newContents);
+                return;
+            }
+            current = current.getNext();
+            currentIndex++;
+        }
+    }
+
 
     public String display(){
         String list = "";
@@ -24,18 +60,17 @@ public class myLinkedList<L> {
         return list;
     }
 
-    //this is your method sean I dunno how works
-    public boolean remove(Object o) {
-        //if head equal null return false
+    public void remove(Object o) {
+
         if (head == null) {
-            return false;
+            return;
         }
 
         //if o is equal to the contents of the head return true
         if (o == head.getContents()){
             //go through the linked list
             head = head.next;
-            return true;
+            return;
         }
         //create a temp node at head
         myNode<L> remove = head;
@@ -45,28 +80,11 @@ public class myLinkedList<L> {
 
             if (remove.next.getContents().equals(o)) {
                 remove.next = remove.next.next;
-                return true;
+                return;
             }
             remove = remove.next;
+            size--;
         }
-        return false;
-    }
-    //search
-
-
-
-
-
-    public boolean edit(L oldC, L newC) {
-
-        while (head != null) {
-            if (oldC.equals(head.getContents())) {
-                head.setContents(newC);
-                return true;
-            }
-            head = head.next;
-        }
-        return false;
     }
 
 

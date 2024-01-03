@@ -1,18 +1,13 @@
 package com.example.retrovideogamesinformationsystem.Controllers;
-
-import com.example.retrovideogamesinformationsystem.Models.Game;
-import com.example.retrovideogamesinformationsystem.Models.GamesMachine;
-import com.example.retrovideogamesinformationsystem.Models.myNode;
+import com.example.retrovideogamesinformationsystem.Models.*;
 import com.example.retrovideogamesinformationsystem.SystemApplication;
 import javafx.fxml.FXML;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.scene.text.Text;
+
 
 public class GMController {
-
-
 
     //the following code is for the other classes so there this class can be assessed easily.
     public static GMController contGM;
@@ -31,22 +26,22 @@ public class GMController {
         //Obtain data from text fields
         String machineName = addMName.getText();
         String manufacturer = addManu.getText();
-        String OldMachine = addType.getText();
+        String type = addType.getText();
         String media = addMedia.getText();
         int year = Integer.parseInt(addYear.getText());
         double price = Double.parseDouble(addPrice.getText());
         String URL = addURL.getText();
 
         //create new GAME MACHINE
-        GamesMachine gameMachine = new GamesMachine(machineName,manufacturer,OldMachine,media,year,price,URL);
+
+        GamesMachine gameMachine = new GamesMachine(machineName,manufacturer,type,media,year,price,URL);
         gameMachine.setMachineName(machineName);
         gameMachine.setManufacturer(manufacturer);
-        gameMachine.setType(OldMachine);
-        gameMachine.setMedia(media);
+        gameMachine.setType(type);
+        gameMachine.setType(media);
         gameMachine.setYearOfLaunch(year);
         gameMachine.setPrice(price);
         gameMachine.setUrl(URL);
-
 
         SController.allGM.add(gameMachine);
 
@@ -64,30 +59,59 @@ public class GMController {
     @FXML
     public ChoiceBox<String> ChoiceBoxGMName;
 
-    public static GamesMachine getGameMachineByName(String GameMName){
-        //create temp node at head
-        myNode<GamesMachine> temp=SController.allGM.head;
+    public static GamesMachine getGameMachineByName(String gameMName){
+        myNode<GamesMachine> temp = SController.allGM.head;
 
-        //Iterate linkedList until end or matching port name
-        while (temp!=null && !temp.getContents().getMachineName().equals(GameMName)){
+        while (temp != null && !temp.getContents().getMachineName().equals(gameMName)){
             temp = temp.next;
         }
+        return temp == null ? null : temp.getContents();
+    }
+    @FXML
+    private void removeGame(){
+     GamesMachine gamesMachine = getGameMachineByName(ChoiceBoxGMName.getValue());
 
-        //if temp is null return null else return the contents of node
-        return temp==null ? null : temp.getContents();
-        //if(temp==null) return null; else return temp.getContents();
-
+        if (gamesMachine != null){
+            SController.allGames.remove(gamesMachine);
+        }
     }
 
     @FXML
-    private void removeGame(){
-        //get the name of the game from the choice box
-        GamesMachine gameMachine = getGameMachineByName(ChoiceBoxGMName.getValue());
-        //if the game is not null the game with the same name will be removed
-        if (gameMachine != null){
-            SController.allGM.remove(gameMachine);
-        }
+    private TextField newMachineName,newManufacturer,newType,newMedia,newYear,newPrice,newURL;
 
+    @FXML
+    private void updateGameMachine() {
+        String selectedGameMName = ChoiceBoxGMName.getValue();
+
+        GamesMachine selectedGameMachine = getGameMachineByName(selectedGameMName);
+
+        if (selectedGameMachine != null) {
+
+            String newMachineNameValue = newMachineName.getText();
+            String newManufacturerValue = newManufacturer.getText();
+            String newTypeValue = newType.getText();
+            String newMediaValue = newMedia.getText();
+            int newYearValue = Integer.parseInt(newYear.getText());
+            double newPriceValue = Double.parseDouble(newPrice.getText());
+            String newURLValue = newURL.getText();
+
+            //create new GAME MACHINE
+            selectedGameMachine.setMachineName(newMachineNameValue);
+            selectedGameMachine.setManufacturer(newManufacturerValue);
+            selectedGameMachine.setType(newTypeValue);
+            selectedGameMachine.setType(newTypeValue);
+            selectedGameMachine.setYearOfLaunch(newYearValue);
+            selectedGameMachine.setPrice(newPriceValue);
+            selectedGameMachine.setUrl(newURLValue);
+
+            addMName.clear();
+            addManu.clear();
+            addType.clear();
+            addMedia.clear();
+            addYear.clear();
+            addPrice.clear();
+            addURL.clear();
+        }
     }
 
     //SEARCHING METHOD AND DISPLAYING METHODS
@@ -119,16 +143,102 @@ public class GMController {
         display.setText(list);
 
     }
+
+
+    //sorting
+    private void swapGameMachine(myLinkedList<GamesMachine> gamesMachine, int i, int j){
+        GamesMachine small = gamesMachine.get(i);
+        GamesMachine big = gamesMachine.get(j);
+
+        gamesMachine.set(i,big);
+        gamesMachine.set(j,small);
+    }
+
+    public myLinkedList<GamePort> sortByYearAscending(myLinkedList<GamesMachine> list){
+        for(int i = list.size() - 1;i >=0; i--){
+            int highestYear = 0;
+            for(int j = 0;j <= i;j++) {
+                if (list.get(j).getYearOfLaunch() < SController.allGM.get(highestYear).getYearOfLaunch()) {
+                    highestYear = j;
+                }
+            }
+            swapGameMachine(list,i,highestYear);
+        }
+        return null;
+    }
+
+    public myLinkedList<GamePort> sortByYearDescending(myLinkedList<GamesMachine> list){
+        for(int i = list.size() - 1;i >=0; i--){
+            int lowestYear = 0;
+            for(int j = 0;j <= i;j++) {
+                if (list.get(j).getYearOfLaunch() > SController.allGM.get(lowestYear).getYearOfLaunch()) {
+                    lowestYear = j;
+                }
+            }
+            swapGameMachine(list,i,lowestYear);
+        }
+        return null;
+    }
+
+    public myLinkedList<GamePort> sortByPriceAscending(myLinkedList<GamesMachine> list){
+        for(int i = list.size() - 1;i >=0; i--){
+            int highestPrice = 0;
+            for(int j = 0;j <= i;j++) {
+                if (list.get(j).getPrice() < SController.allGM.get(highestPrice).getPrice()) {
+                    highestPrice = j;
+                }
+            }
+            swapGameMachine(list,i,highestPrice);
+        }
+        return null;
+    }
+
+    public myLinkedList<GamePort> sortByPriceDescending(myLinkedList<GamesMachine> list){
+        for(int i = list.size() - 1;i >=0; i--){
+            int lowestPrice = 0;
+            for(int j = 0;j <= i;j++) {
+                if (list.get(j).getPrice() > SController.allGM.get(lowestPrice).getPrice()) {
+                    lowestPrice = j;
+                }
+            }
+            swapGameMachine(list,i,lowestPrice);
+        }
+        return null;
+    }
+
+    @FXML
+    private void ascendingYearSortDisplay(){
+        myLinkedList<GamePort> sortYA = sortByYearAscending(SController.allGM);
+
+        display.setText(sortYA.display());
+    }
+
+    @FXML
+    private void descendingYearSortDisplay(){
+        myLinkedList<GamePort> sortYD = sortByYearDescending(SController.allGM);
+
+        display.setText(sortYD.display());
+    }
+
+    @FXML
+    private void ascendingPriceSortDisplay(){
+        myLinkedList<GamePort> sortPA = sortByPriceAscending(SController.allGM);
+
+        display.setText(sortPA.display());
+    }
+
+    @FXML
+    private void descendingPriceSortDisplay(){
+        myLinkedList<GamePort> sortPD = sortByPriceDescending(SController.allGM);
+
+        display.setText(sortPD.display());
+    }
+
+
     @FXML
     private void displayGameMachine(){
         display.setText(SController.allGM.display());
     }
-
-
-
-
-
-
 
     @FXML
     private void switchToGame(){
@@ -159,4 +269,5 @@ public class GMController {
     private void switchToViewSystem(){
         SystemApplication.switchSceneToViewSystem();
     }
+
 }

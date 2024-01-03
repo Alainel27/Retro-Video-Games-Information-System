@@ -4,22 +4,29 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.retrovideogamesinformationsystem.Controllers.GMController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.retrovideogamesinformationsystem.Controllers.GMController">
 
-    <Label layoutX="204.0" layoutY="27.0" text="Viewing a Game Machine">
+    <Label layoutX="176.0" layoutY="55.0" text="VIEWING GAME MACHINES">
         <font>
             <Font size="21.0" />
         </font></Label>
 
-    <Button alignment="CENTER" layoutX="132.0" layoutY="73.0" onAction="#displayGameMachine" prefHeight="35.0" prefWidth="145.0" text="Display Game Machine" />
-    <Button alignment="CENTER" layoutX="132.0" layoutY="122.0" onAction="#switchToViewSystem" prefHeight="35.0" prefWidth="145.0" text="Back" />
+    <Button alignment="CENTER" layoutX="26.0" layoutY="124.0" onAction="#displayGameMachine" prefHeight="25.0" prefWidth="113.0" text="Display" />
+    <Button alignment="CENTER" layoutX="26.0" layoutY="159.0" onAction="#switchToViewSystem" prefHeight="25.0" prefWidth="113.0" text="Back" />
+    <Button layoutX="158.0" layoutY="124.0" onAction="#ascendingYearSortDisplay" prefHeight="25.0" prefWidth="113.0" text="Year Ascending" />
+    <Button layoutX="294.0" layoutY="124.0" onAction="#ascendingPriceSortDisplay" prefHeight="25.0" prefWidth="113.0" text="Price Ascending" />
+    <Button layoutX="158.0" layoutY="159.0" onAction="#descendingYearSortDisplay" prefHeight="25.0" prefWidth="113.0" text="Year Descending" />
+    <Button layoutX="294.0" layoutY="159.0" onAction="#descendingPriceSortDisplay" prefHeight="25.0" prefWidth="113.0" text="Price Descending" />
 
-    <ScrollPane layoutX="135.0" layoutY="194.0" prefHeight="185.0" prefWidth="330.0">
+
+    <ScrollPane layoutX="26.0" layoutY="194.0" prefHeight="185.0" prefWidth="555.0">
         <content>
             <Label fx:id="display" />
         </content>
     </ScrollPane>
 
-    <Button layoutX="289.0" layoutY="120.0" onAction="#searching" prefHeight="35.0" prefWidth="183.0" text="Search For Name" />
-    <TextField fx:id="searchTF" layoutX="288.0" layoutY="78.0" prefHeight="25.0" prefWidth="183.0" promptText="Search Name of Game Machine" />
+
+    <Button layoutX="439.0" layoutY="159.0" onAction="#searching" prefHeight="25.0" prefWidth="138.0" text="Search For Name" />
+    <TextField fx:id="searchTF" layoutX="439.0" layoutY="124.0" prefHeight="25.0" prefWidth="138.0" promptText="Search Name of Game Machine" />
+
 </AnchorPane>

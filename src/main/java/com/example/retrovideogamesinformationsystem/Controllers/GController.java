@@ -4,7 +4,6 @@ import com.example.retrovideogamesinformationsystem.Models.Game;
 import com.example.retrovideogamesinformationsystem.Models.myLinkedList;
 import com.example.retrovideogamesinformationsystem.SystemApplication;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
@@ -12,6 +11,7 @@ import com.example.retrovideogamesinformationsystem.Models.myNode;
 
 
 public class GController {
+
     //the following code is for the other classes so there this class can be assessed easily.
     public static GController contG;
     @FXML
@@ -19,11 +19,16 @@ public class GController {
         contG=this;
     }
 
-
     @FXML
     private TextField addGameName, addPublisher, addDescription, addDeveloper, addType, addYearOfRelease, addCover;
     @FXML
     private Label display;
+
+    @FXML
+    private TextField newName,newPub,newDes,newDevelop,newType,newYear,newCover;
+
+    @FXML
+    public ChoiceBox<String> GameToEditCB;
 
     @FXML
     protected void addGame(){
@@ -35,16 +40,16 @@ public class GController {
         int yearOfRelease = Integer.parseInt(addYearOfRelease.getText());
         String cover = addCover.getText();
 
-        Game g = new Game(gameName,publisher,description,developer,type,yearOfRelease,cover);
-        g.setGameName(gameName);
-        g.setPublisher(publisher);
-        g.setDescription(description);
-        g.setDeveloper(developer);
-        g.setType(type);
-        g.setYearOfRelease(yearOfRelease);
-        g.setCover(cover);
+        Game game = new Game(gameName,publisher,description,developer,type,yearOfRelease,cover);
+        game.setGameName(gameName);
+        game.setPublisher(publisher);
+        game.setDescription(description);
+        game.setDeveloper(developer);
+        game.setType(type);
+        game.setYearOfRelease(yearOfRelease);
+        game.setCover(cover);
 
-        SController.allGames.add(g);
+        SController.allGames.add(game);
 
         addGameName.clear();
         addPublisher.clear();
@@ -55,43 +60,24 @@ public class GController {
         addCover.clear();
     }
 
-    @FXML
-    public ChoiceBox<String> GameName;
-
     //PETER MADE THIS CODE FOR ME SEAN
-    public static Game getGameByName(String GameName){
-        //create temp node at head
-        myNode<Game> temp=SController.allGames.head;
+    public Game getGameByName(String gameName){
+      myNode<Game> temp = SController.allGames.head;
 
-        //Iterate linkedList until end or matching port name
-        while (temp!=null && !temp.getContents().getGameName().equals(GameName)){
-            temp = temp.next;
-        }
-
-        //if temp is null return null else return the contents of node
-        return temp==null ? null : temp.getContents();
-        //if(temp==null) return null; else return temp.getContents();
-
+      while (temp != null && !temp.getContents().getGameName().equals(gameName)){
+          temp = temp.next;
+      }
+      return (temp == null) ? null : temp.getContents();
     }
-
 
     @FXML
     private void removeGame(){
-        //get the name of the game from the choice box
-        Game game = getGameByName(GameName.getValue());
-        //if the game is not null the game with the same name will be removed
+        Game game = getGameByName(GameToEditCB.getValue());
+
         if (game != null){
             SController.allGames.remove(game);
         }
-
     }
-
-
-    @FXML
-    private TextField newName,newPub,newDes,newDevelop,newType,newYear,newCover;
-
-    @FXML
-    public ChoiceBox<String> GameToEditCB;
 
     @FXML
     private void updateGame() {
@@ -102,22 +88,22 @@ public class GController {
 
         if (selectedGame != null) {
             // OBTAIN THE DATA
-            String newNameValue = newName.getText();
-            String newPubValue = newPub.getText();
-            String newDesValue = newDes.getText();
-            String newDevelopValue = newDevelop.getText();
-            String newTypeValue = newType.getText();
-            int newYearValue = Integer.parseInt(newYear.getText());
-            String newCoverValue = newCover.getText();
+            String NameValue = newName.getText();
+            String PubValue = newPub.getText();
+            String DesValue = newDes.getText();
+            String DevelopValue = newDevelop.getText();
+            String TypeValue = newType.getText();
+            int YearValue = Integer.parseInt(newYear.getText());
+            String CoverValue = newCover.getText();
 
-            // UPDATE THA
-            selectedGame.setGameName(newNameValue);
-            selectedGame.setPublisher(newPubValue);
-            selectedGame.setDescription(newDesValue);
-            selectedGame.setDeveloper(newDevelopValue);
-            selectedGame.setType(newTypeValue);
-            selectedGame.setYearOfRelease(newYearValue);
-            selectedGame.setCover(newCoverValue);
+            // UPDATE THE DATA
+            selectedGame.setGameName(NameValue);
+            selectedGame.setPublisher(PubValue);
+            selectedGame.setDescription(DesValue);
+            selectedGame.setDeveloper(DevelopValue);
+            selectedGame.setType(TypeValue);
+            selectedGame.setYearOfRelease(YearValue);
+            selectedGame.setCover(CoverValue);
 
             newName.clear();
             newPub.clear();
@@ -131,25 +117,61 @@ public class GController {
     }
 
 
+    //Sorting
+
+    private void swapGame(myLinkedList<Game> games, int i, int j){
+        Game small = games.get(i);
+        Game big = games.get(j);
+
+        games.set(i,big);
+        games.set(j,small);
+    }
+
+    public myLinkedList<Game> sortByYearAscending(myLinkedList<Game> list){
+        for(int i = list.size() - 1;i >=0; i--){
+            int highestYear = 0;
+            for(int j = 0;j <= i;j++) {
+                if (list.get(j).getYearOfRelease() < SController.allGames.get(highestYear).getYearOfRelease()) {
+                    highestYear = j;
+                }
+            }
+            swapGame(list,i,highestYear);
+        }
+        return list;
+    }
+
+    public myLinkedList<Game> sortByYearDescending(myLinkedList<Game> list) {
+        for (int i = list.size() - 1; i >= 0; i--) {
+            int lowestYear = 0;
+            for (int j = 0; j <= i; j++) {
+                if (list.get(j).getYearOfRelease() > SController.allGames.get(lowestYear).getYearOfRelease()) {
+                    lowestYear = j;
+                }
+            }
+            swapGame(list, i, lowestYear);
+        }
+        return list;
+    }
+
+    @FXML
+    private void ascendingSortDisplay(){
+        myLinkedList<Game> sortA = sortByYearAscending(SController.allGames);
+
+        display.setText(sortA.display());
+    }
+
+    @FXML
+    private void descendingSortDisplay(){
+        myLinkedList<Game> sortD = sortByYearDescending(SController.allGames);
+
+        display.setText(sortD.display());
+    }
+
+
 
     @FXML
     protected void displayGame(){
         display.setText(SController.allGames.display());
-    }
-
-    @FXML
-    private void switchToMenu(){
-        SystemApplication.switchSceneToMenu();
-    }
-
-    @FXML
-    private void switchToGameMachine(){
-        SystemApplication.switchSceneToAddGM();
-    }
-
-    @FXML
-    private void switchToGamePort(){
-        SystemApplication.switchSceneToAddGp();
     }
 
     @FXML
@@ -161,6 +183,12 @@ public class GController {
     private void switchToEdit(){
         SystemApplication.switchSceneToEdit();
     }
+
+    @FXML
+    private void switchToViewSystem(){
+        SystemApplication.switchSceneToViewSystem();
+    }
+
 }
 
 

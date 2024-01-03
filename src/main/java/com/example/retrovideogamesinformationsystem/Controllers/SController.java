@@ -7,6 +7,7 @@ import com.example.retrovideogamesinformationsystem.Models.myLinkedList;
 import com.example.retrovideogamesinformationsystem.SystemApplication;
 import javafx.fxml.FXML;
 
+
 public class SController {
 
 
@@ -22,7 +23,6 @@ public class SController {
     public static myLinkedList<GamesMachine> allGM = new myLinkedList<>();
 
     public static myLinkedList<GamePort> allGP = new myLinkedList<>();
-
 
     //put the switching methods at the bottom of code
     @FXML
@@ -74,10 +74,19 @@ public class SController {
         SystemApplication.switchSceneToViewSystem();
     }
 
+    @FXML
+    private void switchToViewGames(){
+        SystemApplication.switchSceneToViewGames();
+    }
 
+    @FXML
+    private void switchToViewGamesMachine(){
+        SystemApplication.switchSceneToViewGM();
+    }
 
-
-
-
+    @FXML
+    private void switchToViewGamesPort(){
+        SystemApplication.switchSceneToViewGP();
+    }
 
 }
