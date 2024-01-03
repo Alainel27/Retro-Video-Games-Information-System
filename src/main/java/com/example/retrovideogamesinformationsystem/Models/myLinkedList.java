@@ -61,15 +61,23 @@ public class myLinkedList<L> {
     }
 
     public void remove(Object o) {
+
         if (head == null) {
             return;
         }
+
+        //if o is equal to the contents of the head return true
         if (o == head.getContents()){
+            //go through the linked list
             head = head.next;
             return;
         }
+        //create a temp node at head
         myNode<L> remove = head;
-        while (remove.next != null) {
+        //while temp node is not null
+        while (remove.next != null)
+        {
+
             if (remove.next.getContents().equals(o)) {
                 remove.next = remove.next.next;
                 return;
@@ -78,5 +86,7 @@ public class myLinkedList<L> {
             size--;
         }
     }
+
+
 }
 
