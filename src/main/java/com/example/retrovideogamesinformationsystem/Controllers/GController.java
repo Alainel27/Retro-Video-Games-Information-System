@@ -19,9 +19,6 @@ public class GController {
         contG=this;
     }
 
-    public static myLinkedList<Game> allGames = new myLinkedList<>();
-
-
     @FXML
     private TableView<Game> gameTableView;
     @FXML
@@ -133,10 +130,51 @@ public class GController {
         games.set(j,small);
     }
 
+    public myLinkedList<Game> sortByYearAscending(myLinkedList<Game> list){
+        for(int i = list.size() - 1;i >=0; i--){
+            int highestYear = 0;
+            for(int j = 0;j <= i;j++) {
+                if (list.get(j).getYearOfRelease() < SController.allGames.get(highestYear).getYearOfRelease()) {
+                    highestYear = j;
+                }
+            }
+            swapGame(list,i,highestYear);
+        }
+        return list;
+    }
+
+    public myLinkedList<Game> sortByYearDescending(myLinkedList<Game> list) {
+        for (int i = list.size() - 1; i >= 0; i--) {
+            int lowestYear = 0;
+            for (int j = 0; j <= i; j++) {
+                if (list.get(j).getYearOfRelease() > SController.allGames.get(lowestYear).getYearOfRelease()) {
+                    lowestYear = j;
+                }
+            }
+            swapGame(list, i, lowestYear);
+        }
+        return list;
+    }
+
+    @FXML
+    private void ascendingSortDisplay(){
+        myLinkedList<Game> sortA = sortByYearAscending(SController.allGames);
+
+        display.setText(sortA.display());
+    }
+
+    @FXML
+    private void descendingSortDisplay(){
+        myLinkedList<Game> sortD = sortByYearDescending(SController.allGames);
+
+        display.setText(sortD.display());
+    }
+
+
 
     @FXML
     protected void displayGame(){
-        display.setText(allGames.display());
+        display.setText(SController.allGames.display());
     }
 
     @FXML

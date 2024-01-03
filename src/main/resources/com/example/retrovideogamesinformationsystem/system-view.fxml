@@ -14,4 +14,6 @@
     <Button alignment="CENTER" layoutX="189.0" layoutY="150.0" onAction="#switchToAdd" prefHeight="35.0" prefWidth="145.0" text="Add to the System" />
     <Button alignment="CENTER" layoutX="189.0" layoutY="210.0" onAction="#switchToEdit" prefHeight="35.0" prefWidth="145.0" text="Edit the System" />
     <Button alignment="CENTER" layoutX="189.0" layoutY="270.0" prefHeight="35.0" prefWidth="145.0" text="Remove the System" />
+    <Button alignment="CENTER" layoutX="189.0" layoutY="300.0" onAction="#switchToTest" prefHeight="35.0" prefWidth="145.0" text="Sorting HERE For the Moment" />
+
 </AnchorPane>

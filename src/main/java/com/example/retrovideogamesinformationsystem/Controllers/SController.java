@@ -75,10 +75,8 @@ public class SController {
         SystemApplication.switchSceneToViewSystem();
     }
 
-
-
-
-
-
-
+    @FXML
+    private void switchToTest(){
+        SystemApplication.switchSceneToViewTest();
+    }
 }

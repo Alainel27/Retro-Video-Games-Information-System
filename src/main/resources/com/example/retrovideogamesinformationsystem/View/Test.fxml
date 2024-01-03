@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.retrovideogamesinformationsystem.Controllers.GController">
+
+    <Label layoutX="214.0" layoutY="29.0" text="SORTING GAME'S ">
+        <font>
+            <Font size="21.0" />
+        </font></Label>
+
+    <Button layoutX="74.0" layoutY="90.0" onAction="#displayGame" prefHeight="25.0" prefWidth="146.0" text="Display" />
+    <Button layoutX="229.0" layoutY="90.0" onAction="#ascendingSortDisplay" prefHeight="25.0" prefWidth="146.0" text="Sort By Year Ascending" />
+    <Button layoutX="385.0" layoutY="90.0" onAction="#descendingSortDisplay" prefHeight="25.0" prefWidth="146.0" text="Sort By Year Descending" />
+    <Button layoutX="229.0" layoutY="130.0" onAction="#switchToEdit" prefHeight="25.0" prefWidth="131.0" text="Back" />
+
+    <ScrollPane layoutX="74.0" layoutY="170.0" prefHeight="185.0" prefWidth="460.0">
+
+        <content>
+            <Label fx:id="display" />
+        </content>
+    </ScrollPane>
+</AnchorPane>
