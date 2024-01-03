@@ -1,10 +1,12 @@
 package com.example.retrovideogamesinformationsystem.Controllers;
 
 import com.example.retrovideogamesinformationsystem.Models.Game;
+import com.example.retrovideogamesinformationsystem.Models.myLinkedList;
 import com.example.retrovideogamesinformationsystem.SystemApplication;
 import javafx.fxml.FXML;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
+import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import com.example.retrovideogamesinformationsystem.Models.myNode;
 
@@ -17,10 +19,22 @@ public class GController {
         contG=this;
     }
 
+    public static myLinkedList<Game> allGames = new myLinkedList<>();
+
+
+    @FXML
+    private TableView<Game> gameTableView;
     @FXML
     private TextField addGameName, addPublisher, addDescription, addDeveloper, addType, addYearOfRelease, addCover;
     @FXML
     private Label display;
+
+    @FXML
+    private TextField newName,newPub,newDes,newDevelop,newType,newYear,newCover;
+
+    @FXML
+    public ChoiceBox<String> GameToEditCB;
+
 
     @FXML
     protected void addGame(){
@@ -72,12 +86,6 @@ public class GController {
     }
 
     @FXML
-    private TextField newName,newPub,newDes,newDevelop,newType,newYear,newCover;
-
-    @FXML
-    public ChoiceBox<String> GameToEditCB;
-
-    @FXML
     private void updateGame() {
         //create a string with the value of the game data from choiceBox
         String selectedGameName = GameToEditCB.getValue();
@@ -114,69 +122,21 @@ public class GController {
         }
     }
 
-    @FXML
-    private TextField newName,newPub,newDes,newDevelop,newType,newYear,newCover;
 
-    @FXML
-    public ChoiceBox<String> GameToEditCB;
+    //Sorting
 
-    @FXML
-    private void updateGame() {
-        //create a string with the value of the game data from choiceBox
-        String selectedGameName = GameToEditCB.getValue();
+    private void swapGame(myLinkedList<Game> games, int i, int j){
+        Game small = games.get(i);
+        Game big = games.get(j);
 
-        Game selectedGame = getGameByName(selectedGameName);
-
-        if (selectedGame != null) {
-            // OBTAIN THE DATA
-            String newNameValue = newName.getText();
-            String newPubValue = newPub.getText();
-            String newDesValue = newDes.getText();
-            String newDevelopValue = newDevelop.getText();
-            String newTypeValue = newType.getText();
-            int newYearValue = Integer.parseInt(newYear.getText());
-            String newCoverValue = newCover.getText();
-
-            // UPDATE THA
-            selectedGame.setGameName(newNameValue);
-            selectedGame.setPublisher(newPubValue);
-            selectedGame.setDescription(newDesValue);
-            selectedGame.setDeveloper(newDevelopValue);
-            selectedGame.setType(newTypeValue);
-            selectedGame.setYearOfRelease(newYearValue);
-            selectedGame.setCover(newCoverValue);
-
-            newName.clear();
-            newPub.clear();
-            newDes.clear();
-            newDevelop.clear();
-            newType.clear();
-            newYear.clear();
-            newCover.clear();
-
-        }
+        games.set(i,big);
+        games.set(j,small);
     }
-
 
 
     @FXML
     protected void displayGame(){
-        display.setText(SController.allGames.display());
-    }
-
-    @FXML
-    private void switchToMenu(){
-        SystemApplication.switchSceneToMenu();
-    }
-
-    @FXML
-    private void switchToGameMachine(){
-        SystemApplication.switchSceneToAddGM();
-    }
-
-    @FXML
-    private void switchToGamePort(){
-        SystemApplication.switchSceneToAddGp();
+        display.setText(allGames.display());
     }
 
     @FXML

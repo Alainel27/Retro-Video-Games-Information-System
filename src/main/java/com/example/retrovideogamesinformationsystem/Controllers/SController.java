@@ -7,8 +7,6 @@ import com.example.retrovideogamesinformationsystem.Models.myLinkedList;
 import com.example.retrovideogamesinformationsystem.SystemApplication;
 import javafx.fxml.FXML;
 
-import java.util.HashMap;
-
 public class SController {
 
 

@@ -1,5 +1,6 @@
 package com.example.retrovideogamesinformationsystem.Controllers;
 import com.example.retrovideogamesinformationsystem.Models.Game;
+import com.example.retrovideogamesinformationsystem.Models.myLinkedList;
 import com.example.retrovideogamesinformationsystem.Models.myNode;
 import com.example.retrovideogamesinformationsystem.Models.GamesMachine;
 import com.example.retrovideogamesinformationsystem.SystemApplication;
@@ -41,8 +42,6 @@ public class GMController {
         gameMachine.setManufacturer(manufacturer);
         gameMachine.setType(type);
         gameMachine.setType(media);
-        gameMachine.setType(OldMachine);
-        gameMachine.setMedia(media);
         gameMachine.setYearOfLaunch(year);
         gameMachine.setPrice(price);
         gameMachine.setUrl(URL);
@@ -147,6 +146,66 @@ public class GMController {
         display.setText(list);
 
     }
+
+
+    //sorting
+    private void swapGameMachine(myLinkedList<GamesMachine> gamesMachine, int i, int j){
+        GamesMachine small = gamesMachine.get(i);
+        GamesMachine big = gamesMachine.get(j);
+
+        gamesMachine.set(i,big);
+        gamesMachine.set(j,small);
+    }
+
+    public void sortByYearAscending(){
+        for(int i = SController.allGM.size() - 1;i >=0; i--){
+            int highestYear = 0;
+            for(int j = 0;j <= i;j++) {
+                if (SController.allGM.get(j).getYearOfLaunch() < SController.allGM.get(highestYear).getYearOfLaunch()) {
+                    highestYear = j;
+                }
+            }
+            swapGameMachine(SController.allGM,i,highestYear);
+        }
+    }
+
+    public void sortByYearDescending(){
+        for(int i = SController.allGM.size() - 1;i >=0; i--){
+            int lowestYear = 0;
+            for(int j = 0;j <= i;j++) {
+                if (SController.allGM.get(j).getYearOfLaunch() > SController.allGM.get(lowestYear).getYearOfLaunch()) {
+                    lowestYear = j;
+                }
+            }
+            swapGameMachine(SController.allGM,i,lowestYear);
+        }
+    }
+
+    public void sortByPriceAscending(){
+        for(int i = SController.allGM.size() - 1;i >=0; i--){
+            int highestPrice = 0;
+            for(int j = 0;j <= i;j++) {
+                if (SController.allGM.get(j).getPrice() < SController.allGM.get(highestPrice).getPrice()) {
+                    highestPrice = j;
+                }
+            }
+            swapGameMachine(SController.allGM,i,highestPrice);
+        }
+    }
+
+    public void sortByPriceDescending(){
+        for(int i = SController.allGM.size() - 1;i >=0; i--){
+            int lowestPrice = 0;
+            for(int j = 0;j <= i;j++) {
+                if (SController.allGM.get(j).getPrice() > SController.allGM.get(lowestPrice).getPrice()) {
+                    lowestPrice = j;
+                }
+            }
+            swapGameMachine(SController.allGM,i,lowestPrice);
+        }
+    }
+
+
     @FXML
     private void displayGameMachine(){
         display.setText(SController.allGM.display());

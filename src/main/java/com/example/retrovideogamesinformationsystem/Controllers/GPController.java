@@ -1,8 +1,6 @@
 package com.example.retrovideogamesinformationsystem.Controllers;
 
-import com.example.retrovideogamesinformationsystem.Models.Game;
-import com.example.retrovideogamesinformationsystem.Models.GamePort;
-import com.example.retrovideogamesinformationsystem.Models.myNode;
+import com.example.retrovideogamesinformationsystem.Models.*;
 import com.example.retrovideogamesinformationsystem.SystemApplication;
 import javafx.fxml.FXML;
 import javafx.scene.control.ChoiceBox;
@@ -25,6 +23,12 @@ public class GPController {
     private Label display;
 
     @FXML
+    public ChoiceBox<String> ChoiceBoxGPGame;
+
+    @FXML
+    private TextField newPortedGame, newPortDeveloper, newPortReleaseYear, newCover;
+
+    @FXML
     protected void addGamePort(){
         String portedGame = addPortedGame.getText();
         String portDeveloper = addPortDeveloper.getText();
@@ -45,10 +49,6 @@ public class GPController {
         addCover.clear();
     }
 
-
-    @FXML
-    public ChoiceBox<String> ChoiceBoxGPGame;
-
     public static GamePort getGamePortGame(String gamePortGame) {
         myNode<GamePort> temp = SController.allGP.head;
 
@@ -68,9 +68,6 @@ public class GPController {
     }
 
     @FXML
-    private TextField newPortedGame, newPortDeveloper, newPortReleaseYear, newCover;
-
-    @FXML
     private void updatePort(){
         String selectedGamePort = ChoiceBoxGPGame.getValue();
 
@@ -82,6 +79,40 @@ public class GPController {
             int portReleaseYear = Integer.parseInt(newPortReleaseYear.getText());
             String portCover = newCover.getText();
 
+        }
+    }
+
+    //Sorting
+
+    private void swapGamePort(myLinkedList<GamePort> gamePort, int i, int j){
+        GamePort small = gamePort.get(i);
+        GamePort big = gamePort.get(j);
+
+        gamePort.set(i,big);
+        gamePort.set(j,small);
+    }
+
+    public void sortByYearAscending(){
+        for(int i = SController.allGP.size() - 1;i >=0; i--){
+            int highestYear = 0;
+            for(int j = 0;j <= i;j++) {
+                if (SController.allGP.get(j).getPortReleaseYear() < SController.allGP.get(highestYear).getPortReleaseYear()) {
+                    highestYear = j;
+                }
+            }
+            swapGamePort(SController.allGP,i,highestYear);
+        }
+    }
+
+    public void sortByYearDescending(){
+        for(int i = SController.allGP.size() - 1;i >=0; i--){
+            int lowestYear = 0;
+            for(int j = 0;j <= i;j++) {
+                if (SController.allGP.get(j).getPortReleaseYear() > SController.allGP.get(lowestYear).getPortReleaseYear()) {
+                    lowestYear = j;
+                }
+            }
+            swapGamePort(SController.allGP,i,lowestYear);
         }
     }
 

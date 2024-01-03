@@ -10,6 +10,10 @@ public class myNode<L> {
         return contents;
     }
 
+    public myNode<L> getNext(){
+        return next;
+    }
+
     public void setContents(L contents){
         this.contents = contents;
     }
