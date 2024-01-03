@@ -1,10 +1,6 @@
 package com.example.retrovideogamesinformationsystem.Models;
 
-import com.example.retrovideogamesinformationsystem.Controllers.GMController;
-import com.example.retrovideogamesinformationsystem.Controllers.SController;
-
 public class myLinkedList<L> {
-
     public myNode<L> head = null;
     private int size;
 
@@ -12,6 +8,7 @@ public class myLinkedList<L> {
         return size;
     }
 
+    //Adds a new item to the beginning of the list and increases the size
     public void add(L N) {
         myNode<L> add = new myNode<>();
         add.setContents(N);
@@ -20,6 +17,7 @@ public class myLinkedList<L> {
         size ++;
     }
 
+    //Gets the contents of the index in the list
     public L get(int index) {
 
         myNode<L> current = head;
@@ -35,6 +33,7 @@ public class myLinkedList<L> {
         return null;
     }
 
+    //Sets the
     public void set(int index, L newContents){
 
         myNode<L> current= head;
@@ -61,37 +60,23 @@ public class myLinkedList<L> {
         return list;
     }
 
-    public boolean remove(Object o) {
+    public void remove(Object o) {
         if (head == null) {
-            return false;
+            return;
         }
         if (o == head.getContents()){
             head = head.next;
-            return true;
+            return;
         }
         myNode<L> remove = head;
         while (remove.next != null) {
             if (remove.next.getContents().equals(o)) {
                 remove.next = remove.next.next;
-                return true;
+                return;
             }
             remove = remove.next;
             size--;
         }
-        return false;
     }
-    //search
-
-
-    //public boolean edit(L oldContent, L newContent){
-        //while (head != null){
-           // if(oldContent.equals(head.getContents())){
-              //  head.setContents(newContent);
-              //  return true;
-          //  }
-           // head = head.next;
-      //  }
-      //  return false;
-   // }
 }
 

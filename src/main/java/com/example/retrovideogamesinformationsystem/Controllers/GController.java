@@ -6,12 +6,12 @@ import com.example.retrovideogamesinformationsystem.SystemApplication;
 import javafx.fxml.FXML;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
-import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import com.example.retrovideogamesinformationsystem.Models.myNode;
 
 
 public class GController {
+
     //the following code is for the other classes so there this class can be assessed easily.
     public static GController contG;
     @FXML
@@ -19,8 +19,6 @@ public class GController {
         contG=this;
     }
 
-    @FXML
-    private TableView<Game> gameTableView;
     @FXML
     private TextField addGameName, addPublisher, addDescription, addDeveloper, addType, addYearOfRelease, addCover;
     @FXML
@@ -31,7 +29,6 @@ public class GController {
 
     @FXML
     public ChoiceBox<String> GameToEditCB;
-
 
     @FXML
     protected void addGame(){
@@ -90,7 +87,7 @@ public class GController {
         Game selectedGame = getGameByName(selectedGameName);
 
         if (selectedGame != null) {
-            // OBTAIN THA DATA
+            // OBTAIN THE DATA
             String NameValue = newName.getText();
             String PubValue = newPub.getText();
             String DesValue = newDes.getText();
@@ -99,7 +96,7 @@ public class GController {
             int YearValue = Integer.parseInt(newYear.getText());
             String CoverValue = newCover.getText();
 
-            // UPDATE THA MOTHAFUKER
+            // UPDATE THE DATA
             selectedGame.setGameName(NameValue);
             selectedGame.setPublisher(PubValue);
             selectedGame.setDescription(DesValue);
@@ -186,6 +183,12 @@ public class GController {
     private void switchToEdit(){
         SystemApplication.switchSceneToEdit();
     }
+
+    @FXML
+    private void switchToViewSystem(){
+        SystemApplication.switchSceneToViewSystem();
+    }
+
 }
 
 

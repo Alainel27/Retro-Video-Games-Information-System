@@ -79,6 +79,17 @@ public class GPController {
             int portReleaseYear = Integer.parseInt(newPortReleaseYear.getText());
             String portCover = newCover.getText();
 
+            selectedPort.setPortedGame(portedGameValue);
+            selectedPort.setPortDeveloper(portDeveloperValue);
+            selectedPort.setPortReleaseYear(portReleaseYear);
+            selectedPort.setCover(portCover);
+
+
+            newPortedGame.clear();
+            newPortDeveloper.clear();
+            newPortReleaseYear.clear();
+            newCover.clear();
+
         }
     }
 
@@ -92,19 +103,20 @@ public class GPController {
         gamePort.set(j,small);
     }
 
-    public void sortByYearAscending(){
-        for(int i = SController.allGP.size() - 1;i >=0; i--){
+    public myLinkedList<GamePort> sortByYearAscending(myLinkedList<GamePort> list){
+        for(int i = list.size() - 1;i >=0; i--){
             int highestYear = 0;
             for(int j = 0;j <= i;j++) {
-                if (SController.allGP.get(j).getPortReleaseYear() < SController.allGP.get(highestYear).getPortReleaseYear()) {
+                if (list.get(j).getPortReleaseYear() < SController.allGP.get(highestYear).getPortReleaseYear()) {
                     highestYear = j;
                 }
             }
-            swapGamePort(SController.allGP,i,highestYear);
+            swapGamePort(list,i,highestYear);
         }
+        return list;
     }
 
-    public void sortByYearDescending(){
+    public myLinkedList<GamePort> sortByYearDescending(myLinkedList<GamePort> list){
         for(int i = SController.allGP.size() - 1;i >=0; i--){
             int lowestYear = 0;
             for(int j = 0;j <= i;j++) {
@@ -114,7 +126,23 @@ public class GPController {
             }
             swapGamePort(SController.allGP,i,lowestYear);
         }
+        return list;
     }
+
+    @FXML
+    private void ascendingSortDisplay(){
+        myLinkedList<GamePort> sortA = sortByYearAscending(SController.allGP);
+
+        display.setText(sortA.display());
+    }
+
+    @FXML
+    private void descendingSortDisplay(){
+        myLinkedList<GamePort> sortD = sortByYearDescending(SController.allGP);
+
+        display.setText(sortD.display());
+    }
+
 
     @FXML
     protected void displayGamePort(){
@@ -144,6 +172,11 @@ public class GPController {
     @FXML
     private void switchToEdit(){
         SystemApplication.switchSceneToEdit();
+    }
+
+    @FXML
+    private void switchToViewSystem(){
+        SystemApplication.switchSceneToViewSystem();
     }
 
 }

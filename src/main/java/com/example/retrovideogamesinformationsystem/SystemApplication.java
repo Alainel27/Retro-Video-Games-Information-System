@@ -17,7 +17,7 @@ import java.io.IOException;
 
 public class SystemApplication extends Application {
 
-    public static Scene sceneSystem, sceneAddGMachine, sceneAddGame, sceneAddGamePort, sceneAdd, sceneEdit, sceneEditGame, sceneEditGMachine, sceneEditGamePort, sceneViewSystem, sceneViewGM, Test;
+    public static Scene sceneSystem, sceneAddGMachine, sceneAddGame, sceneAddGamePort, sceneAdd, sceneEdit, sceneEditGame, sceneEditGMachine, sceneEditGamePort, sceneViewSystem,sceneViewGames, sceneViewGM, sceneViewGP;
 
     public static Stage primaryStage;
 
@@ -53,11 +53,14 @@ public class SystemApplication extends Application {
         fxmlLoader = new FXMLLoader(SystemApplication.class.getResource("View/view-system.fxml"));
         sceneViewSystem = new Scene(fxmlLoader.load(), 550, 400);
 
+        fxmlLoader = new FXMLLoader(SystemApplication.class.getResource("View/view-games.fxml"));
+        sceneViewGames = new Scene(fxmlLoader.load(), 550, 400);
+
         fxmlLoader = new FXMLLoader(SystemApplication.class.getResource("View/view-gMachine.fxml"));
         sceneViewGM = new Scene(fxmlLoader.load(), 550, 400);
 
-        fxmlLoader = new FXMLLoader(SystemApplication.class.getResource("View/Test.fxml"));
-        Test = new Scene(fxmlLoader.load(), 550, 400);
+        fxmlLoader = new FXMLLoader(SystemApplication.class.getResource("View/view-gPort.fxml"));
+        sceneViewGP = new Scene(fxmlLoader.load(), 550, 400);
 
 
         stage.setTitle("System Controller");
@@ -138,14 +141,16 @@ public class SystemApplication extends Application {
         primaryStage.setScene(sceneViewSystem);
     }
 
+    public static void switchSceneToViewGames() {
+        primaryStage.setScene(sceneViewGames);
+    }
+
     public static void switchSceneToViewGM() {
         primaryStage.setScene(sceneViewGM);
     }
 
-    public static void switchSceneToViewTest() {
-        primaryStage.setScene(Test);
+    public static void switchSceneToViewGP() {
+        primaryStage.setScene(sceneViewGP);
     }
 }
-
-
 //test

@@ -1,8 +1,5 @@
 package com.example.retrovideogamesinformationsystem.Controllers;
-import com.example.retrovideogamesinformationsystem.Models.Game;
-import com.example.retrovideogamesinformationsystem.Models.myLinkedList;
-import com.example.retrovideogamesinformationsystem.Models.myNode;
-import com.example.retrovideogamesinformationsystem.Models.GamesMachine;
+import com.example.retrovideogamesinformationsystem.Models.*;
 import com.example.retrovideogamesinformationsystem.SystemApplication;
 import javafx.fxml.FXML;
 import javafx.scene.control.ChoiceBox;
@@ -157,52 +154,84 @@ public class GMController {
         gamesMachine.set(j,small);
     }
 
-    public void sortByYearAscending(){
-        for(int i = SController.allGM.size() - 1;i >=0; i--){
+    public myLinkedList<GamePort> sortByYearAscending(myLinkedList<GamesMachine> list){
+        for(int i = list.size() - 1;i >=0; i--){
             int highestYear = 0;
             for(int j = 0;j <= i;j++) {
-                if (SController.allGM.get(j).getYearOfLaunch() < SController.allGM.get(highestYear).getYearOfLaunch()) {
+                if (list.get(j).getYearOfLaunch() < SController.allGM.get(highestYear).getYearOfLaunch()) {
                     highestYear = j;
                 }
             }
-            swapGameMachine(SController.allGM,i,highestYear);
+            swapGameMachine(list,i,highestYear);
         }
+        return null;
     }
 
-    public void sortByYearDescending(){
-        for(int i = SController.allGM.size() - 1;i >=0; i--){
+    public myLinkedList<GamePort> sortByYearDescending(myLinkedList<GamesMachine> list){
+        for(int i = list.size() - 1;i >=0; i--){
             int lowestYear = 0;
             for(int j = 0;j <= i;j++) {
-                if (SController.allGM.get(j).getYearOfLaunch() > SController.allGM.get(lowestYear).getYearOfLaunch()) {
+                if (list.get(j).getYearOfLaunch() > SController.allGM.get(lowestYear).getYearOfLaunch()) {
                     lowestYear = j;
                 }
             }
-            swapGameMachine(SController.allGM,i,lowestYear);
+            swapGameMachine(list,i,lowestYear);
         }
+        return null;
     }
 
-    public void sortByPriceAscending(){
-        for(int i = SController.allGM.size() - 1;i >=0; i--){
+    public myLinkedList<GamePort> sortByPriceAscending(myLinkedList<GamesMachine> list){
+        for(int i = list.size() - 1;i >=0; i--){
             int highestPrice = 0;
             for(int j = 0;j <= i;j++) {
-                if (SController.allGM.get(j).getPrice() < SController.allGM.get(highestPrice).getPrice()) {
+                if (list.get(j).getPrice() < SController.allGM.get(highestPrice).getPrice()) {
                     highestPrice = j;
                 }
             }
-            swapGameMachine(SController.allGM,i,highestPrice);
+            swapGameMachine(list,i,highestPrice);
         }
+        return null;
     }
 
-    public void sortByPriceDescending(){
-        for(int i = SController.allGM.size() - 1;i >=0; i--){
+    public myLinkedList<GamePort> sortByPriceDescending(myLinkedList<GamesMachine> list){
+        for(int i = list.size() - 1;i >=0; i--){
             int lowestPrice = 0;
             for(int j = 0;j <= i;j++) {
-                if (SController.allGM.get(j).getPrice() > SController.allGM.get(lowestPrice).getPrice()) {
+                if (list.get(j).getPrice() > SController.allGM.get(lowestPrice).getPrice()) {
                     lowestPrice = j;
                 }
             }
-            swapGameMachine(SController.allGM,i,lowestPrice);
+            swapGameMachine(list,i,lowestPrice);
         }
+        return null;
+    }
+
+    @FXML
+    private void ascendingYearSortDisplay(){
+        myLinkedList<GamePort> sortYA = sortByYearAscending(SController.allGM);
+
+        display.setText(sortYA.display());
+    }
+
+    @FXML
+    private void descendingYearSortDisplay(){
+        myLinkedList<GamePort> sortYD = sortByYearDescending(SController.allGM);
+
+        display.setText(sortYD.display());
+    }
+
+    @FXML
+    private void ascendingPriceSortDisplay(){
+        myLinkedList<GamePort> sortPA = sortByPriceAscending(SController.allGM);
+
+        display.setText(sortPA.display());
+    }
+
+    @FXML
+    private void descendingPriceSortDisplay(){
+        myLinkedList<GamePort> sortPD = sortByPriceDescending(SController.allGM);
+
+        display.setText(sortPD.display());
     }
 
 
@@ -235,6 +264,7 @@ public class GMController {
     private void switchToEdit(){
         SystemApplication.switchSceneToEdit();
     }
+
     @FXML
     private void switchToViewSystem(){
         SystemApplication.switchSceneToViewSystem();
