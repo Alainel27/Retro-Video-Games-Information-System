@@ -8,7 +8,8 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 
 public class GPController {
-    //the following code is for the other classes so there this class can be assessed easily.
+
+    //The following code is for the other classes so there this class can be assessed easily.
     public static GPController contGP;
 
     @FXML
@@ -28,6 +29,7 @@ public class GPController {
     @FXML
     private TextField newPortedGame, newPortDeveloper, newPortReleaseYear, newCover;
 
+    //Gathers inputs from user to create a new GamePort and add it to the list
     @FXML
     protected void addGamePort(){
         String portedGame = addPortedGame.getText();
@@ -49,6 +51,7 @@ public class GPController {
         addCover.clear();
     }
 
+    //Gathers the names of the existing GamePort in the list
     public static GamePort getGamePortGame(String gamePortGame) {
         myNode<GamePort> temp = SController.allGP.head;
 
@@ -58,6 +61,7 @@ public class GPController {
         return temp == null ? null : temp.getContents();
     }
 
+    //From the list of gathered GamePort names and removes the selected GamePort
     @FXML
     private void removeGamePort(){
         GamePort gamePort = getGamePortGame(ChoiceBoxGPGame.getValue());
@@ -67,6 +71,7 @@ public class GPController {
         }
     }
 
+    //Gathers info from user to update the contents of a selected GamePort
     @FXML
     private void updatePort(){
         String selectedGamePort = ChoiceBoxGPGame.getValue();
@@ -129,6 +134,8 @@ public class GPController {
         return list;
     }
 
+    //Display's
+
     @FXML
     private void ascendingSortDisplay(){
         myLinkedList<GamePort> sortA = sortByYearAscending(SController.allGP);
@@ -143,26 +150,12 @@ public class GPController {
         display.setText(sortD.display());
     }
 
-
     @FXML
     protected void displayGamePort(){
         display.setText(SController.allGP.display());
     }
 
-    @FXML
-    private void switchToMenu(){
-        SystemApplication.switchSceneToMenu();
-    }
-
-    @FXML
-    private void switchToGameMachine(){
-        SystemApplication.switchSceneToAddGM();
-    }
-
-    @FXML
-    private void switchToGame(){
-        SystemApplication.switchSceneToAddGame();
-    }
+    //Switching Scenes
 
     @FXML
     private void switchToAdd(){

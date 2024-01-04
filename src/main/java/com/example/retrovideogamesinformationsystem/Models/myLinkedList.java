@@ -33,7 +33,7 @@ public class myLinkedList<L> {
         return null;
     }
 
-    //Sets the
+    //Sets the index selected to new contents
     public void set(int index, L newContents){
 
         myNode<L> current= head;
@@ -50,6 +50,7 @@ public class myLinkedList<L> {
     }
 
 
+    //Displays the contents of the list
     public String display(){
         String list = "";
         myNode<L> h = head;
@@ -60,6 +61,7 @@ public class myLinkedList<L> {
         return list;
     }
 
+    //Remove the first occurrence of the given object of the list and decreases the size
     public void remove(Object o) {
         if (head == null) {
             return;

@@ -2,13 +2,13 @@
 
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<?import javafx.scene.text.Font?>
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.retrovideogamesinformationsystem.Controllers.GMController">
 
     <Label layoutX="211.0" layoutY="26.0" text="EDIT A GAME MACHINE">
     <font>
-        <Font size="21.0"/>
+        <Font size="21.0" />
     </font>
     </Label>
 
@@ -20,7 +20,7 @@
     <TextField fx:id="addPrice" layoutX="60.0" layoutY="290.0" promptText="add price" />
     <TextField fx:id="addURL" layoutX="60.0" layoutY="330.0" promptText="add URL" />
 
-    <Button layoutX="240.0" layoutY="90.0" onAction="#addGameMachine" prefHeight="25.0" prefWidth="137.0" text="Add Game Machine" />
+    <Button layoutX="240.0" layoutY="90.0" onAction="#updateGameMachine" prefHeight="25.0" prefWidth="137.0" text="Edit Game Machine" />
     <Button layoutX="400.0" layoutY="90.0" onAction="#displayGameMachine" prefHeight="25.0" prefWidth="67.0" text="Display" />
     <Button layoutX="240.0" layoutY="130.0" onAction="#switchToEdit" prefHeight="25.0" prefWidth="137.0" text="Back" />
     <ScrollPane layoutX="240.0" layoutY="170.0" prefHeight="185.0" prefWidth="330.0">

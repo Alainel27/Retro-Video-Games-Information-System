@@ -14,7 +14,7 @@ public class Game {
 
     private String type = "";
 
-    private int yearOfRelease = 0000;
+    private int yearOfRelease = 0;
 
     private String cover = "";
 
@@ -92,10 +92,10 @@ public class Game {
         return yearOfRelease == game.yearOfRelease && Objects.equals(gameName, game.gameName) && Objects.equals(publisher, game.publisher) && Objects.equals(description, game.description) && Objects.equals(developer, game.developer) && Objects.equals(type, game.type) && Objects.equals(cover, game.cover);
     }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(gameName, publisher, description, developer, type, yearOfRelease, cover);
-    }
+    //@Override
+    //public int hashCode() {
+    //    return Objects.hash(gameName, publisher, description, developer, type, yearOfRelease, cover);
+    //}
 
     public String toString() {
         return
@@ -105,8 +105,7 @@ public class Game {
                 ", Developer= " + developer +
                 ", Type= " + type +
                 ", YearOfRelease= " + yearOfRelease +
-                ", Cover= " + cover +
-                '\n';
+                ", Cover= " + cover;
     }
 }
 

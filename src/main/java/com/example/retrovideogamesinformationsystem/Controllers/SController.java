@@ -11,7 +11,7 @@ import javafx.fxml.FXML;
 public class SController {
 
 
-    //the following code is for the other classes so there this class can be assessed easily.
+    //The following code is for the other classes so there this class can be assessed easily.
     public static SController contS;
     @FXML
     private void initialize(){
@@ -24,7 +24,8 @@ public class SController {
 
     public static myLinkedList<GamePort> allGP = new myLinkedList<>();
 
-    //put the switching methods at the bottom of code
+
+    //Put the switching methods at the bottom of code
     @FXML
     private void switchToMenu(){
         SystemApplication.switchSceneToMenu();

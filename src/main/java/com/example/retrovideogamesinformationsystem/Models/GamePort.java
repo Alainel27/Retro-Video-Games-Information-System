@@ -59,18 +59,17 @@ public class GamePort {
         return portReleaseYear == gamePort.portReleaseYear && Objects.equals(portedGame, gamePort.portedGame) && Objects.equals(portDeveloper, gamePort.portDeveloper) && Objects.equals(cover, gamePort.cover);
     }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(portedGame, portDeveloper, portReleaseYear, cover);
-    }
+    //@Override
+    //public int hashCode() {
+    //    return Objects.hash(portedGame, portDeveloper, portReleaseYear, cover);
+    //}
 
     @Override
     public String toString() {
-        return "GamePort{" +
-                "portedGame='" + portedGame + '\'' +
-                ", portDeveloper='" + portDeveloper + '\'' +
-                ", portReleaseYear=" + portReleaseYear +
-                ", cover='" + cover + '\'' +
-                '}';
+        return
+                "Ported Game Name= " + portedGame +
+                ", Developer= " + portDeveloper +
+                ", ReleaseYear= " + portReleaseYear +
+                ", Cover= " + cover;
     }
 }
