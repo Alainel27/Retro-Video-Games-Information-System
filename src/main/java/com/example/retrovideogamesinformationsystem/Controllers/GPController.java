@@ -97,6 +97,33 @@ public class GPController {
 
         }
     }
+    //SEARCHING METHOD
+
+    public String search(String searchName){
+        myNode<GamePort> temp = SController.allGP.head;
+        while (temp != null) {
+            GamePort gameport = temp.getContents();
+
+            if (gameport.getPortedGame().equalsIgnoreCase(searchName)){
+                return "Game Machine: " + gameport.getPortedGame();
+            }
+
+            temp=temp.next;
+        }
+
+        return null;
+    }
+
+    @FXML
+    public TextField searchTF;
+
+    @FXML
+    private void searching(){
+        String name = searchTF.getText();
+        String list = search(name);
+        display.setText(list);
+
+    }
 
     //Sorting
 

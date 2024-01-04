@@ -1,6 +1,7 @@
 package com.example.retrovideogamesinformationsystem.Controllers;
 
 import com.example.retrovideogamesinformationsystem.Models.Game;
+import com.example.retrovideogamesinformationsystem.Models.GamesMachine;
 import com.example.retrovideogamesinformationsystem.Models.myLinkedList;
 import com.example.retrovideogamesinformationsystem.SystemApplication;
 import javafx.fxml.FXML;
@@ -170,6 +171,34 @@ public class GController {
         myLinkedList<Game> sortD = sortByYearDescending(SController.allGames);
 
         display.setText(sortD.display());
+    }
+
+    //SEARCHING METHOD
+
+    public String search(String searchName){
+        myNode<Game> temp = SController.allGames.head;
+        while (temp != null) {
+            Game game = temp.getContents();
+
+            if (game.getGameName().equalsIgnoreCase(searchName)){
+                return "Game Machine: " + game.getGameName();
+            }
+
+            temp=temp.next;
+        }
+
+        return null;
+    }
+
+    @FXML
+    public TextField searchTF;
+
+    @FXML
+    private void searching(){
+        String name = searchTF.getText();
+        String list = search(name);
+        display.setText(list);
+
     }
 
     @FXML
