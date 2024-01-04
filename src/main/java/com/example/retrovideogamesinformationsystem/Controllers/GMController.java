@@ -9,7 +9,7 @@ import javafx.scene.control.TextField;
 
 public class GMController {
 
-    //the following code is for the other classes so there this class can be assessed easily.
+    //The following code is for the other classes so there this class can be assessed easily.
     public static GMController contGM;
     @FXML
     private void initialize(){
@@ -21,6 +21,11 @@ public class GMController {
     @FXML
     private Label display;
 
+    @FXML
+    private TextField newMachineName,newManufacturer,newType,newMedia,newYear,newPrice,newURL;
+
+
+    //Gathers inputs from user to create a new GameMachine and add it to the list
     @FXML
     private void addGameMachine(){
         //Obtain data from text fields
@@ -54,11 +59,10 @@ public class GMController {
         addURL.clear();
 
     }
-//put the switching methods at the bottom of code
-
     @FXML
     public ChoiceBox<String> ChoiceBoxGMName;
 
+    //Gathers the names of the existing GameMachine in the list
     public static GamesMachine getGameMachineByName(String gameMName){
         myNode<GamesMachine> temp = SController.allGM.head;
 
@@ -67,6 +71,8 @@ public class GMController {
         }
         return temp == null ? null : temp.getContents();
     }
+
+    //From the list of gathered GameMachine names and  removes the selected GameMachine
     @FXML
     private void removeGame(){
      GamesMachine gamesMachine = getGameMachineByName(ChoiceBoxGMName.getValue());
@@ -76,9 +82,8 @@ public class GMController {
         }
     }
 
-    @FXML
-    private TextField newMachineName,newManufacturer,newType,newMedia,newYear,newPrice,newURL;
 
+    //Gathers info from user to update the contents of a selected GameMachine
     @FXML
     private void updateGameMachine() {
         String selectedGameMName = ChoiceBoxGMName.getValue();
@@ -95,11 +100,12 @@ public class GMController {
             double newPriceValue = Double.parseDouble(newPrice.getText());
             String newURLValue = newURL.getText();
 
-            //create new GAME MACHINE
+            //Update an existing GAME MACHINE
+
             selectedGameMachine.setMachineName(newMachineNameValue);
             selectedGameMachine.setManufacturer(newManufacturerValue);
             selectedGameMachine.setType(newTypeValue);
-            selectedGameMachine.setType(newTypeValue);
+            selectedGameMachine.setMedia(newMediaValue);
             selectedGameMachine.setYearOfLaunch(newYearValue);
             selectedGameMachine.setPrice(newPriceValue);
             selectedGameMachine.setUrl(newURLValue);
@@ -114,7 +120,7 @@ public class GMController {
         }
     }
 
-    //SEARCHING METHOD AND DISPLAYING METHODS
+    //SEARCHING METHOD
 
     public String search(String searchName){
         myNode<GamesMachine> temp = SController.allGM.head;
@@ -131,8 +137,6 @@ public class GMController {
         return null;
     }
 
-
-
     @FXML
     public TextField searchTF;
 
@@ -144,8 +148,9 @@ public class GMController {
 
     }
 
+    //Sorting
 
-    //sorting
+    //Swap two items in the list
     private void swapGameMachine(myLinkedList<GamesMachine> gamesMachine, int i, int j){
         GamesMachine small = gamesMachine.get(i);
         GamesMachine big = gamesMachine.get(j);
@@ -206,6 +211,7 @@ public class GMController {
         return null;
     }
 
+    //Display's
     @FXML
     private void ascendingYearSortDisplay(){
         myLinkedList<GamePort> sortYA = sortByYearAscending(SController.allGM);
@@ -234,27 +240,12 @@ public class GMController {
         display.setText(sortPD.display());
     }
 
-
     @FXML
     private void displayGameMachine(){
         display.setText(SController.allGM.display());
     }
 
-    @FXML
-    private void switchToGame(){
-        SystemApplication.switchSceneToAddGame();
-    }
-
-    @FXML
-    private void switchToGameMenu(){
-        SystemApplication.switchSceneToMenu();
-    }
-
-    @FXML
-    private void switchToGamePort(){
-        SystemApplication.switchSceneToAddGp();
-    }
-
+    //Switching Scenes
     @FXML
     private void switchToAdd(){
         SystemApplication.switchSceneToAdd();

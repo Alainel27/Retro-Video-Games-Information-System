@@ -1,16 +1,13 @@
+/**
 package com.example.retrovideogamesinformationsystem.Models;
-
-
-import java.util.List;
 
 public class myHashMap<H> {
 
-
     myLinkedList<H>[] hashTable;
 
-    public int hashFunction(int key) {
+   public int hashFunction(int key) {
         return key%hashTable.length;
-    }
+   }
 
     public String displayHashTable() {
         for (myLinkedList<H> hmyLinkedList : hashTable) {
@@ -39,6 +36,5 @@ public class myHashMap<H> {
             linkedList.remove(loc);
         }
     }
-
-}
-
+ }
+ */

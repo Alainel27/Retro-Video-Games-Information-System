@@ -92,10 +92,10 @@ public class GamesMachine {
         return yearOfLaunch == that.yearOfLaunch && Double.compare(that.price, price) == 0 && Objects.equals(machineName, that.machineName) && Objects.equals(manufacturer, that.manufacturer) && Objects.equals(type, that.type) && Objects.equals(media, that.media) && Objects.equals(url, that.url);
     }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(machineName, manufacturer, type, media, yearOfLaunch, price, url);
-    }
+    //@Override
+    //public int hashCode() {
+    //    return Objects.hash(machineName, manufacturer, type, media, yearOfLaunch, price, url);
+    //}
 
     public String toString() {
         return
@@ -105,8 +105,7 @@ public class GamesMachine {
                 ", Media= " + media +
                 ", Launched= " + yearOfLaunch +
                 ", Price= " + price +
-                ", URL= " + url +
-                '\n';
+                ", URL= " + url;
     }
 }
 

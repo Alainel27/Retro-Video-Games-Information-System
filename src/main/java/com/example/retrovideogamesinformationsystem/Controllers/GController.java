@@ -12,7 +12,7 @@ import com.example.retrovideogamesinformationsystem.Models.myNode;
 
 public class GController {
 
-    //the following code is for the other classes so there this class can be assessed easily.
+    //The following code is for the other classes so there this class can be assessed easily.
     public static GController contG;
     @FXML
     private void initialize(){
@@ -30,6 +30,7 @@ public class GController {
     @FXML
     public ChoiceBox<String> GameToEditCB;
 
+    //Gathers inputs from user to create a new Game and add it to the list
     @FXML
     protected void addGame(){
         String gameName = addGameName.getText();
@@ -60,7 +61,7 @@ public class GController {
         addCover.clear();
     }
 
-    //PETER MADE THIS CODE FOR ME SEAN
+    //Gathers the names of the existing games in the list
     public Game getGameByName(String gameName){
       myNode<Game> temp = SController.allGames.head;
 
@@ -70,8 +71,9 @@ public class GController {
       return (temp == null) ? null : temp.getContents();
     }
 
+    //From the list of gathered game names and  removes the selected game
     @FXML
-    private void removeGame(){
+    protected void removeGame(){
         Game game = getGameByName(GameToEditCB.getValue());
 
         if (game != null){
@@ -79,8 +81,9 @@ public class GController {
         }
     }
 
+    //Gathers info from user to update the contents of a selected game
     @FXML
-    private void updateGame() {
+    protected void updateGame() {
         //create a string with the value of the game data from choiceBox
         String selectedGameName = GameToEditCB.getValue();
 
@@ -119,6 +122,7 @@ public class GController {
 
     //Sorting
 
+    //Swap two items in the list
     private void swapGame(myLinkedList<Game> games, int i, int j){
         Game small = games.get(i);
         Game big = games.get(j);
@@ -153,6 +157,7 @@ public class GController {
         return list;
     }
 
+    //Display's
     @FXML
     private void ascendingSortDisplay(){
         myLinkedList<Game> sortA = sortByYearAscending(SController.allGames);
@@ -167,13 +172,12 @@ public class GController {
         display.setText(sortD.display());
     }
 
-
-
     @FXML
     protected void displayGame(){
         display.setText(SController.allGames.display());
     }
 
+    //Switching Scenes
     @FXML
     private void switchToAdd(){
         SystemApplication.switchSceneToAdd();
