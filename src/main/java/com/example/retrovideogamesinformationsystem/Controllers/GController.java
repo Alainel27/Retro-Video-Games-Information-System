@@ -17,6 +17,7 @@ public class GController {
     public static GController contG;
     @FXML
     private void initialize(){
+
         contG=this;
     }
 

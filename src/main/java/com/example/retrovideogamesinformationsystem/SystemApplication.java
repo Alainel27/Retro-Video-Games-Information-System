@@ -15,6 +15,9 @@ import com.example.retrovideogamesinformationsystem.Models.myNode;
 
 import java.io.IOException;
 
+//READ ME
+//Created by Alan Zaharia and Sean Murphy
+
 public class SystemApplication extends Application {
 
     public static Scene sceneSystem, sceneAddGMachine, sceneAddGame, sceneAddGamePort, sceneAdd, sceneEdit, sceneEditGame, sceneEditGMachine, sceneEditGamePort, sceneViewSystem,sceneViewGames, sceneViewGM, sceneViewGP;
@@ -75,6 +78,7 @@ public class SystemApplication extends Application {
 
     //switches to game machine
     public static void switchSceneToAddGM() {
+
         primaryStage.setScene(sceneAddGMachine);
     }
 
@@ -82,17 +86,12 @@ public class SystemApplication extends Application {
     public static void switchSceneToAddGame() {
         primaryStage.setScene(sceneAddGame);
 
+
     }
 
     //switches to game port
     public static void switchSceneToAddGp() {
         primaryStage.setScene(sceneAddGamePort);
-        myNode<GamePort> temp = SController.allGP.head;
-        GPController.contGP.ChoiceBoxGPGame.getItems().clear();
-        while (temp != null) {
-            GPController.contGP.ChoiceBoxGPGame.getItems().add(temp.getContents().getPortedGame());
-            temp = temp.next;
-        }
     }
 
     public static void switchSceneToMenu() {
@@ -105,14 +104,15 @@ public class SystemApplication extends Application {
 
     public static void switchSceneToEdit() {
         primaryStage.setScene(sceneEdit);
+
     }
 
     public static void switchSceneToEditGame() {
         primaryStage.setScene(sceneEditGame);
-        GController.contG.GameToEditCB.getItems().clear();
         myNode<Game> temp = SController.allGames.head;
+        GController.contG.GameToEditCB.getItems().clear();
         while (temp != null) {
-            GController.contG.GameToEditCB.getItems().add(temp.getContents().getGameName());
+           GController.contG.GameToEditCB.getItems().add(temp.getContents().getGameName());
             temp = temp.next;
         }
     }

@@ -11,8 +11,10 @@ public class GMController {
 
     //The following code is for the other classes so there this class can be assessed easily.
     public static GMController contGM;
+
     @FXML
-    private void initialize(){
+    public void initialize(){
+
         contGM=this;
     }
     @FXML
